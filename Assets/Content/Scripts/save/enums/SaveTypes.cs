@@ -8,8 +8,6 @@ namespace SaveSystem {
         Nothing = 0,
         Position = 1,
         Rotation = 2,
-        RigidBodyForces = 4,
-        Health = 8,
-        SomethingElse = 16
+        RigidBody = 4
     }
 }

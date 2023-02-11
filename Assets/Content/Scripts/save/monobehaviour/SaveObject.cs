@@ -20,6 +20,11 @@ namespace SaveSystem {
                     case SaveTypes.Rotation: 
                         obj = new Rotation() {rotation = transform.rotation};
                         break;
+                    case SaveTypes.RigidBody: 
+                        var rigidBody = GetComponent<UnityEngine.Rigidbody>();
+                        if (rigidBody != null)
+                            obj = new RigidBody() {velocity = rigidBody.velocity, angularVelocity = rigidBody.angularVelocity};
+                        break;
                 }
                 if (obj != null)
                     saveMap[flag] = obj;
@@ -36,6 +41,14 @@ namespace SaveSystem {
                         break;
                     case SaveTypes.Rotation: 
                         transform.rotation = (saveMap[flag] as Rotation).rotation;
+                        break;
+                    case SaveTypes.RigidBody: 
+                        var savedRigidBody = (saveMap[flag] as RigidBody);
+                        var rigidBody = GetComponent<UnityEngine.Rigidbody>();
+                        if (rigidBody != null) {
+                            rigidBody.velocity = savedRigidBody.velocity;
+                            rigidBody.angularVelocity = savedRigidBody.angularVelocity;
+                        }
                         break;
                 }
             }
