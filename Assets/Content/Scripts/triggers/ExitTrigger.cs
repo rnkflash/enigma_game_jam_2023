@@ -38,6 +38,8 @@ public class ExitTrigger : MonoBehaviour
 
         Player.Instance.toScene = toScene;
         Player.Instance.toExit = toExit;
+        Player.Instance.playerWasSprinting = other.GetComponent<PlayerInputValues>().sprint;
+
         SceneController.Instance.LoadAnyScene(toScene);
     }
 }

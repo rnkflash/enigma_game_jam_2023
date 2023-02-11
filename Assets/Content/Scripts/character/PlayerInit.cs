@@ -18,6 +18,8 @@ public class PlayerInit : MonoBehaviour
             transform.position = exit.spawnPoint.position;
             transform.rotation = exit.spawnPoint.rotation;
             cc.enabled = true;
+
+            GetComponent<PlayerInputValues>().sprint = Player.Instance.playerWasSprinting;
         }
     }
 }

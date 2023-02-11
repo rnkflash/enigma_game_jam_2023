@@ -72,7 +72,7 @@ using UnityEngine.InputSystem;
         private PlayerInput _playerInput;
         private Animator _animator;
         private UnityEngine.CharacterController _controller;
-        private StarterAssets.StarterAssetsInputs _input;
+        private PlayerInputValues _input;
         private GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
@@ -100,7 +100,7 @@ using UnityEngine.InputSystem;
         {
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<UnityEngine.CharacterController>();
-            _input = GetComponent<StarterAssets.StarterAssetsInputs>();
+            _input = GetComponent<PlayerInputValues>();
             _playerInput = GetComponent<PlayerInput>();
 
             AssignAnimationIDs();
