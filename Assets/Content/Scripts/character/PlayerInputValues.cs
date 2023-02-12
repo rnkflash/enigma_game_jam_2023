@@ -8,6 +8,7 @@ public class PlayerInputValues : MonoBehaviour
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool aim;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -39,6 +40,11 @@ public class PlayerInputValues : MonoBehaviour
 			SprintInput(value.isPressed);
 		}
 
+		public void OnAim(InputValue value)
+		{
+			AimInput(value.isPressed);
+		}
+
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
@@ -57,6 +63,11 @@ public class PlayerInputValues : MonoBehaviour
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void AimInput(bool newValue)
+		{
+			aim = newValue;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

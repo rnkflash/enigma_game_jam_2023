@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(UnityEngine.CharacterController))]
@@ -6,17 +7,11 @@ using UnityEngine.InputSystem;
     public class PlayerController : MonoBehaviour
     {
         [Header("Player")]
-        [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
-
-        [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
 
-        [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
-
-        [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
 
         [Space(10)]
@@ -24,30 +19,17 @@ using UnityEngine.InputSystem;
         public CharacterAudio characterAudio;
 
         [Space(10)]
-        [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
-
-        [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
         [Space(10)]
-        [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
-
-        [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
 
         [Header("Player Grounded")]
-        [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
         public bool Grounded = true;
-
-        [Tooltip("Useful for rough ground")]
         public float GroundedOffset = -0.14f;
-
-        [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
         public float GroundedRadius = 0.28f;
-
-        [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
         // player
@@ -73,26 +55,18 @@ using UnityEngine.InputSystem;
         private Animator _animator;
         private UnityEngine.CharacterController _controller;
         private PlayerInputValues _input;
-        private GameObject _mainCamera;
+        private Camera _mainCamera;
 
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
-
-        private bool IsCurrentDeviceMouse
-        {
-            get
-            {
-                return _playerInput.currentControlScheme == "KeyboardMouse";
-            }
-        }
 
 
         private void Awake()
         {
             if (_mainCamera == null)
             {
-                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             }
         }
 
@@ -103,7 +77,11 @@ using UnityEngine.InputSystem;
             _input = GetComponent<PlayerInputValues>();
             _playerInput = GetComponent<PlayerInput>();
 
-            AssignAnimationIDs();
+            _animIDSpeed = Animator.StringToHash("Speed");
+            _animIDGrounded = Animator.StringToHash("Grounded");
+            _animIDJump = Animator.StringToHash("Jump");
+            _animIDFreeFall = Animator.StringToHash("FreeFall");
+            _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
@@ -117,20 +95,50 @@ using UnityEngine.InputSystem;
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Aim();
         }
 
-        private void LateUpdate()
-        {
-            
-        }
+        private void Aim() {
+            var raycastLayerMask = LayerMask.GetMask(new string[] {"Default", "Target"});
+            Vector3 scaledMousePosition = Vector3.Scale(
+                Input.mousePosition, 
+                new Vector3((float)_mainCamera.pixelWidth / Screen.width, (float)_mainCamera.pixelHeight / Screen.height)
+            );
+            Ray ray = _mainCamera.ScreenPointToRay(scaledMousePosition);
+            //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
+            RaycastHit[] hits = Physics.RaycastAll(ray.origin, ray.direction, 100f, raycastLayerMask);
+            Array.Sort<RaycastHit>(
+                hits,
+                new Comparison<RaycastHit>((i1, i2) => {
+                        var d1 = Vector3.Distance(ray.origin, i1.point); 
+                        var d2 = Vector3.Distance(ray.origin, i2.point); 
+                        if (d1 == d2)
+                            return 0;
+                        else 
+                        if (d2 > d1)
+                            return -1;
+                        else
+                            return 1;
+                    }
+                )
+            );
 
-        private void AssignAnimationIDs()
-        {
-            _animIDSpeed = Animator.StringToHash("Speed");
-            _animIDGrounded = Animator.StringToHash("Grounded");
-            _animIDJump = Animator.StringToHash("Jump");
-            _animIDFreeFall = Animator.StringToHash("FreeFall");
-            _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            if (_input.aim) {
+                if (hits.Length > 0) {
+                    Vector3 worldAimTarget = hits[0].point;
+                    Debug.DrawRay(ray.origin, (worldAimTarget - ray.origin).normalized * hits[0].distance, Color.yellow);
+                    worldAimTarget.y = transform.position.y;
+                    Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+                    Debug.DrawRay(transform.position, aimDirection * 100f, Color.blue);
+                    transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+
+                    _animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+                } else {
+                    _animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+                }
+            } else {
+                _animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+            }
         }
 
         private void GroundedCheck()
@@ -198,7 +206,8 @@ using UnityEngine.InputSystem;
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if (!_input.aim)
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
 
