@@ -19,9 +19,9 @@ using UnityEngine.InputSystem;
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
 
-        public AudioClip LandingAudioClip;
-        public AudioClip[] FootstepAudioClips;
-        [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+        [Space(10)]
+        [Header("Audio")]
+        public CharacterAudio characterAudio;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -310,11 +310,7 @@ using UnityEngine.InputSystem;
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                if (FootstepAudioClips.Length > 0)
-                {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                }
+                characterAudio.PlaySteps(GroundType.Concrete, transform.TransformPoint(_controller.center));
             }
         }
 
@@ -322,7 +318,7 @@ using UnityEngine.InputSystem;
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                characterAudio.PlayLanding(GroundType.Concrete, transform.TransformPoint(_controller.center));
             }
         }
     } 
