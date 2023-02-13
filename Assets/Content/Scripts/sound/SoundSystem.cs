@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public static class SoundSystem
     {
@@ -13,6 +14,8 @@ public static class SoundSystem
 
         private static GameObject musicGameObject = null;
         private static AudioSource musicAudioSource = null;
+
+		private static AudioMixer mixer = null;
 
 		public static bool IsPlayingMusic() 
 		{
@@ -55,6 +58,11 @@ public static class SoundSystem
                 musicGameObject = new GameObject("Music");
 				UnityEngine.Object.DontDestroyOnLoad(musicGameObject);
 				musicAudioSource = musicGameObject.AddComponent<AudioSource>();
+
+				if (mixer == null) {
+					mixer = (Resources.Load("AudioMixer") as Mixer).mixer;
+				}
+				musicAudioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
             }
             musicAudioSource.clip = music;
             musicAudioSource.loop = true;

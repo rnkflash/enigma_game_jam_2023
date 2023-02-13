@@ -197,7 +197,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Amient
+  m_Name: Ambient
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c4ecf95e549277d4797b269367e72066
   m_Children: []

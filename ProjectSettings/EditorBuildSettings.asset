@@ -5,21 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Content/Scenes/test/stolen_level.unity
-    guid: 6e694a6b19e350f42b4f20b426da88a2
+    path: Assets/Content/Scenes/Game/boot.unity
+    guid: b9d7320771ece0c4bb32a6473b62ce3a
   - enabled: 1
-    path: Assets/Content/Scenes/test/level_MID.unity
-    guid: c8fcfe37ac0e32a48bdb53cf0f227b93
+    path: Assets/Content/Scenes/Game/menu.unity
+    guid: 344573f5e23b4854181de270b82a4314
   - enabled: 1
-    path: Assets/Content/Scenes/test/level_DOWN.unity
-    guid: 7aebb0c2f6220a94ba426314bfb8afb0
+    path: Assets/Content/Scenes/Game/lose.unity
+    guid: e51003a8b5d760340b8575378645fdda
   - enabled: 1
-    path: Assets/Content/Scenes/test/level_UP.unity
-    guid: 2a9c095004ee8c4499fdb155fea8a84e
+    path: Assets/Content/Scenes/Game/win.unity
+    guid: 7dc9f38834657f54780e41f4da2586d4
+  - enabled: 1
+    path: Assets/Content/Scenes/Game/levels/level_01.unity
+    guid: 856998401d3398449b50705e1deceb28
+  - enabled: 1
+    path: Assets/Content/Scenes/Game/levels/level_02.unity
+    guid: b6ada5fe21cd0b541838bf1bfea782b6
+  - enabled: 1
+    path: Assets/Content/Scenes/Game/levels/level_03.unity
+    guid: 4b3655ca2b9ce9b42995bdbd55cb6e0f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

@@ -3,7 +3,7 @@ using System;
 
 public class Sounds : Singleton<Sounds>
 {
-	private Sound[] sounds;
+	public Sound[] sounds;
 	
 	protected override void Created()
 	{
@@ -14,6 +14,6 @@ public class Sounds : Singleton<Sounds>
 
 	public AudioClip GetAudioClip(string id)
 	{
-		return Array.Find(sounds, element => element.id == id).clip;
+		return Array.Find(sounds, element => element.name == id).clip;
 	}
 }
