@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &900371090704781148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900371090704781150}
+  - component: {fileID: 900371090704781151}
+  m_Layer: 0
+  m_Name: RenderController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900371090704781150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900371090704781148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900371090704781151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900371090704781148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a92662c99d15294bb99760476e5b7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainLight: 1
+  MainLightObj: {fileID: 0}
+  MainLightColor: {r: 1, g: 1, b: 1, a: 1}
+  MainLightIntensity: 0
+  LightDir: {x: 2.73, y: 4.48, z: -0.64}
+  RimLight: 1
+  RimLightColor: {r: 1, g: 1, b: 1, a: 1}
+  RimLightIntensity: 0.061
+  GlobalIllumination: 1
+  SkyReflection: {r: 1, g: 1, b: 1, a: 1}
+  GroundReflection: {r: 1, g: 1, b: 1, a: 1}
+  GIIntensity: 1.5
+  Fog: 1
+  FogColor: {r: 1, g: 1, b: 1, a: 1}
+  FogDensity: 0.5
+  PostGrading: 1
+  Gain: 1
+  Tint: {r: 1, g: 1, b: 1, a: 1}
+  Offset: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  Saturation: 1.05
+  Vignette: 1.45
+  Outline: 0.5
+  ShaderLODInt: 800
+  InheritLightObj: 1
