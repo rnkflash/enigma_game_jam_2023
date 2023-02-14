@@ -12,6 +12,7 @@ public class PlayerInit : MonoBehaviour
         if (toExit != null) {
             var exit = GameObject.FindGameObjectsWithTag("Exit")
                 .Select(gameObject => gameObject.GetComponent<ExitTrigger>())
+                .Where(exitTrigger => exitTrigger!=null)
                 .First(exitTrigger => exitTrigger.exitName == toExit);
             var cc = GetComponent<CharacterController>();
             cc.enabled = false;
