@@ -9,6 +9,7 @@ public class PlayerInputValues : MonoBehaviour
 		public bool jump;
 		public bool sprint;
 		public bool aim;
+		public bool use;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -35,6 +36,11 @@ public class PlayerInputValues : MonoBehaviour
 			JumpInput(value.isPressed);
 		}
 
+		public void OnUse(InputValue value)
+		{
+			UseInput(value.isPressed);
+		}
+
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
@@ -58,6 +64,11 @@ public class PlayerInputValues : MonoBehaviour
 		public void JumpInput(bool newJumpState)
 		{
 			jump = newJumpState;
+		}
+
+		public void UseInput(bool newState)
+		{
+			use = newState;
 		}
 
 		public void SprintInput(bool newSprintState)

@@ -9,9 +9,12 @@ public class LaserSight : MonoBehaviour
     public GameObject redDot;
     public LayerMask raycastLayerMask;
 
+    private Camera _camera;
+
     void Start()
     {
         laser.positionCount = 2;
+        _camera = Camera.main;
     }
 
     void Update()
@@ -24,7 +27,6 @@ public class LaserSight : MonoBehaviour
         if (laserHit) {
             laserRange = laserHitInfo.distance;
             redDot.transform.position = laserHitInfo.point;
-            //redDot.transform.LookAt(Camera.main.transform.position, -Vector3.up);
         } else {
             redDot.transform.position = Vector3.zero;
         }
@@ -33,7 +35,8 @@ public class LaserSight : MonoBehaviour
     }
 
     private void LateUpdate()
-     {
-        redDot.transform.forward = new Vector3(Camera.main.transform.forward.x, redDot.transform.forward.y, Camera.main.transform.forward.z);
-     }
+    {
+        redDot.transform.forward = new Vector3(_camera.transform.forward.x, redDot.transform.forward.y, _camera.transform.forward.z);
+        redDot.transform.up = new Vector3(redDot.transform.up.x, _camera.transform.up.y, _camera.transform.up.z);
+    }
 }
