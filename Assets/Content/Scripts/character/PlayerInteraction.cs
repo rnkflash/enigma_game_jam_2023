@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerInputValues inputValues;
     private float useTimeout = 0.5f;
     private float useTimeoutDelta;
+    public Transform pickupPoint;
 
     void Start()
     {
@@ -27,8 +28,7 @@ public class PlayerInteraction : MonoBehaviour
         if (inputValues.use && useTimeoutDelta <= 0.0f)
         {
             if (selectedItem!=null) {
-                selectedItem.PickUp();
-                Destroy(selectedItem.gameObject);
+                selectedItem.PickUp(pickupPoint);
                 items.Remove(selectedItem);
                 selectedItem = null;
             }
@@ -59,7 +59,10 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     private void SelectClosestItem() {
-        var item = items.OrderBy(item=>GetDistPointToLine(transform.position, transform.forward, item.transform.position)).FirstOrDefault();
+        var item = items
+            .Where(item=>item.selectable)
+            .OrderBy(item=>GetDistPointToLine(transform.position, transform.forward, item.transform.position))
+            .FirstOrDefault();
         if (item != null) {
             if (selectedItem != item) {
                 selectedItem?.Select(false);
