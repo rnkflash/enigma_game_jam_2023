@@ -27,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         if (inputValues.use && useTimeoutDelta <= 0.0f)
         {
             if (selectedItem!=null) {
+                selectedItem.PickUp();
                 Destroy(selectedItem.gameObject);
                 items.Remove(selectedItem);
                 selectedItem = null;
