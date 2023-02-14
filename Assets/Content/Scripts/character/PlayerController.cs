@@ -100,12 +100,15 @@ using UnityEngine.InputSystem;
 
         private void Aim() {
             var raycastLayerMask = LayerMask.GetMask(new string[] {"Default", "Target"});
-            Vector3 scaledMousePosition = Vector3.Scale(
-                Input.mousePosition, 
-                new Vector3((float)_mainCamera.pixelWidth / Screen.width, (float)_mainCamera.pixelHeight / Screen.height)
-            );
+            var scaleFactor = (float)_mainCamera.pixelHeight / Screen.height;
+            var xOffset = (Screen.width * scaleFactor - _mainCamera.pixelWidth) / 2f;
+            var mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+
+            Vector3 scaledMousePosition = Vector3.Scale(mousePosition, new Vector3(scaleFactor, scaleFactor));
+            scaledMousePosition.x -= xOffset;
+
             Ray ray = _mainCamera.ScreenPointToRay(scaledMousePosition);
-            //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
+            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
             RaycastHit[] hits = Physics.RaycastAll(ray.origin, ray.direction, 100f, raycastLayerMask);
             Array.Sort<RaycastHit>(
                 hits,
