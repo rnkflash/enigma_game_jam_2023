@@ -6,29 +6,24 @@ using DG.Tweening;
 public class Item : MonoBehaviour
 {
     public ItemData item;
-    private SelectUI selectUI;
-    public bool selectable = true;
+    private InteractiveObject interactiveObject;
 
     void Start() {
-        selectUI = GetComponentInChildren<SelectUI>();
+        interactiveObject = GetComponentInChildren<InteractiveObject>();
+        interactiveObject.onInteractListeners += PickUp;
     }
 
-    public void Select(bool selected) {
-        if (selected)
-            selectUI.Appear();
-        else
-            selectUI.Disappear();
+    void OnDestroy() {
+        interactiveObject.onInteractListeners -= PickUp;
     }
 
-    public void PickUp(Transform whoPickedUp) {
+    public void PickUp(PlayerInteraction interactor) {
         Debug.Log($"Picked up {item.itemName}. {item.description}");
-        Select(false);
-        selectable = false;
+        interactiveObject.selectable = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Collider>().enabled = false;
         transform.DOScale(0f, 0.25f);
-        transform.DOMove(whoPickedUp.position, 0.25f).OnComplete(()=>Destroy(gameObject));
-        //transform.DOJump(whoPickedUp.position, 0f, 1, 0.5f).OnComplete(()=>Destroy(gameObject));
+        transform.DOMove(interactor.pickupPoint.position, 0.25f).OnComplete(()=>Destroy(gameObject));
     }
 }

@@ -18,6 +18,7 @@ public class FadeInOut : MonoBehaviour
     }
 
     void OnDestroy() {
+        DOTween.Kill(canvasGroup);
         EventBus<FadeInOutRequest>.Unsub(OnRequest);
     }
 

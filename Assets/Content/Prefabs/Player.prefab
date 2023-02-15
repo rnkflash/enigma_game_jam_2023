@@ -1195,6 +1195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedItem: {fileID: 0}
   pickupPoint: {fileID: 4622004909831625065}
+  tagsMask: 2
 --- !u!1001 &320623558808193830
 PrefabInstance:
   m_ObjectHideFlags: 0
