@@ -61,6 +61,7 @@ using UnityEngine.InputSystem;
 
         private bool _hasAnimator;
 
+        public bool disableControls = false;
 
         private void Awake()
         {
@@ -90,8 +91,9 @@ using UnityEngine.InputSystem;
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
-
+            if (disableControls)
+                return;
+                
             JumpAndGravity();
             GroundedCheck();
             Move();

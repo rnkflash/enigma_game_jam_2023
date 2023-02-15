@@ -5,7 +5,6 @@ using System.Linq;
 
 public class PlayerInit : MonoBehaviour
 {
-    
     void Start()
     {
         var toExit = Player.Instance.toExit;
@@ -16,11 +15,10 @@ public class PlayerInit : MonoBehaviour
                 .First(exitTrigger => exitTrigger.exitName == toExit);
             var cc = GetComponent<CharacterController>();
             cc.enabled = false;
-            transform.position = exit.spawnPoint.position;
-            transform.rotation = exit.spawnPoint.rotation;
+            transform.position = exit.exitPoint.position;
+            transform.rotation = exit.exitPoint.rotation;
             cc.enabled = true;
-
-            GetComponent<PlayerInputValues>().sprint = Player.Instance.playerWasSprinting;
+            exit.EnterSequence(GetComponent<PlayerController>());
         }
     }
 }

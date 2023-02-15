@@ -872,7 +872,7 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
+  m_Center: {x: 0, y: 0.893, z: 0}
 --- !u!114 &9108739404113244106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +999,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 129
+  disableControls: 0
 --- !u!114 &4538010633224663621
 MonoBehaviour:
   m_ObjectHideFlags: 0

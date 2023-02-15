@@ -6,6 +6,5 @@ public class Player : Singleton<Player>
 {
     public string toScene = null;
     public string toExit = null;
-
     public bool playerWasSprinting = false;
 }
