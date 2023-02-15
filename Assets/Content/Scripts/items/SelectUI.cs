@@ -1,35 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class SelectUI : MonoBehaviour
 {
-    private float scaleX;
-    private float scaleY;
-    private float scaleZ;
+    private float timeToAppear = 0.5f;
 
-    private float timeToScale = 0.5f;
+    public Transform[] transforms;
+    private Vector3[] cachedPositions;
+    private Vector3[] cachedScales;
 
     void Start()
     {
-        scaleX = this.transform.localScale.x;
-        scaleY = this.transform.localScale.y;
-        scaleZ = this.transform.localScale.z;
+        if (transforms.Length == 0)
+            return;
+        cachedPositions = new Vector3[transforms.Length];
+        cachedScales = new Vector3[transforms.Length];
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            cachedPositions[i] = transforms[i].localPosition;
+            cachedScales[i] = transforms[i].localScale;
+        }
 
-        this.transform.localScale = Vector3.zero;
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].localScale = Vector3.zero;
+            transforms[i].localPosition = Vector3.zero;
+        }
     }
 
     void OnDestroy() {
-        this.transform.DOKill();
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].DOKill();
+        }
+        transforms = new Transform[0];
+        cachedPositions = new Vector3[0];
+        cachedScales = new Vector3[0];
     }
 
     public void Appear() {
-        this.transform.localScale = Vector3.zero;
-        this.transform.DOScale(new Vector3(scaleX, scaleY, scaleZ), timeToScale);
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].DOScale(cachedScales[i], timeToAppear);
+            transforms[i].DOLocalMove(cachedPositions[i], timeToAppear);
+        }
     }
 
     public void Disappear() {
-        this.transform.DOScale(Vector3.zero, timeToScale);
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].DOScale(Vector3.zero, timeToAppear);
+            transforms[i].DOLocalMove(Vector3.zero, timeToAppear);
+        }
     }
 }
