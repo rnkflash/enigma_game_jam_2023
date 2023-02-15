@@ -9,6 +9,9 @@ public class SelectUI : MonoBehaviour
     private Vector3[] cachedPositions;
     private Vector3[] cachedScales;
 
+    private bool isAppearing = false;
+    private bool isDisappearing = false;
+
     void Start()
     {
         if (transforms.Length == 0)
@@ -29,16 +32,25 @@ public class SelectUI : MonoBehaviour
     }
 
     void OnDestroy() {
-        for (int i = 0; i < transforms.Length; i++)
-        {
-            transforms[i].DOKill();
-        }
+        KillTweens();
         transforms = new Transform[0];
         cachedPositions = new Vector3[0];
         cachedScales = new Vector3[0];
     }
 
+    private void KillTweens() {
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            transforms[i].DOKill();
+        }
+    }
+
     public void Appear() {
+        if (isAppearing)
+            return;
+        isAppearing = true;
+        isDisappearing = false;
+        KillTweens();
         for (int i = 0; i < transforms.Length; i++)
         {
             transforms[i].DOScale(cachedScales[i], timeToAppear);
@@ -47,6 +59,11 @@ public class SelectUI : MonoBehaviour
     }
 
     public void Disappear() {
+        if (isDisappearing)
+            return;
+        isDisappearing = true;
+        isAppearing = false;
+        KillTweens();
         for (int i = 0; i < transforms.Length; i++)
         {
             transforms[i].DOScale(Vector3.zero, timeToAppear);
