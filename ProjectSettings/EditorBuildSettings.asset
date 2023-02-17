@@ -24,6 +24,30 @@ EditorBuildSettings:
     path: Assets/Content/Scenes/Game/levels/level_02.unity
     guid: b6ada5fe21cd0b541838bf1bfea782b6
   - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_01_ControlRoom.unity
+    guid: 037bea0fe974121439c8a9fb6859fdc8
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_03_ResearchRoom.unity
+    guid: 816eecb7586b10c499eee581d1961741
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_02_Gateway.unity
+    guid: e1be50f9ed28fc24c8be0283d7cb7984
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_04_Corridor.unity
+    guid: 2e9bca903ab3aa847a583e3a9774a6d9
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_05_Hydroponics.unity
+    guid: 1ad72b1d975702648aac0f0d7346ebe6
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_06_Cabin.unity
+    guid: 682e34967b3f3ca4595fd13993ea2658
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_07_Warehouse.unity
+    guid: 8b71238b523f047469b76e4a800bfa99
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Station_08_TrainStation.unity
+    guid: ff5728561f6db0148819f8e7460909aa
+  - enabled: 1
     path: Assets/Content/Scenes/Game/levels/mobius_up.unity
     guid: 4b3655ca2b9ce9b42995bdbd55cb6e0f
   - enabled: 1
