@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d9307521501836948869d1efcc28c1c4
+guid: d142aa7aabb8a41438345e349228913d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,11 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Public Pixel
-  fallbackFontReferences: []
+  - Bitter Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 308644304c3a8c64f82272e5a6d2fd92, type: 3}
+  - {fileID: 12800000, guid: 301b2dd1e4d5d9c4aa8d9864c1da3e72, type: 3}
+  - {fileID: 12800000, guid: 3052ee358b1abbb4c9e07f546d311a42, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
