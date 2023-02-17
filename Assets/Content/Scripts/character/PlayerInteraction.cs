@@ -12,7 +12,6 @@ public class PlayerInteraction : MonoBehaviour
     private float useTimeout = 0.5f;
     private float useTimeoutDelta;
     public Transform pickupPoint;
-
     public InteractiveTags tagsMask;
 
     void Start()
