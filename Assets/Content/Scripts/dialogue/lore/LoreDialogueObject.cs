@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueObject: MonoBehaviour {
+public class LoreDialogueObject: MonoBehaviour {
     
     private InteractiveObject interactiveObject;
     public LoreDialogueSO loreDialog;

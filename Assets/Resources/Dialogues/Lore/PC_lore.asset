@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b623bc6fd1049dc4dbb1a790802fda5b, type: 3}
-  m_Name: PC_Lore
+  m_Script: {fileID: 11500000, guid: 68110a8d6cbead147b5de57c0bbd66e6, type: 3}
+  m_Name: PC_lore
   m_EditorClassIdentifier: 
   sentences:
-  - is it phenom?
-  - or athlon
-  - nah probably some zpectrum shit..
+  - ooo
+  - aaa
+  - eee
