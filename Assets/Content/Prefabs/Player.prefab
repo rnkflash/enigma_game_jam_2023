@@ -1115,7 +1115,7 @@ MonoBehaviour:
   pushLayers:
     serializedVersion: 2
     m_Bits: 129
-  strength: 1.1
+  strength: 0.8
 --- !u!114 &3207773882190004787
 MonoBehaviour:
   m_ObjectHideFlags: 0
