@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LoreDialogController: MonoBehaviour {
+public class CommentDialogUIController: MonoBehaviour {
 
     public TMP_Text dialogueText;
     private Queue<string> sentences = new Queue<string>();
@@ -16,7 +16,7 @@ public class LoreDialogController: MonoBehaviour {
         sentences.Clear();
     }
 
-    public void ShowLore(LoreDialogueSO data) {
+    public void StartDialog(CommentDialogueSO data) {
         dialogueText.text = "";
         sentences.Clear();
         foreach (string item in data.sentences)
@@ -70,6 +70,6 @@ public class LoreDialogController: MonoBehaviour {
         dialogueText.text = "";
         currentSentence = "";
         typingSentence = false;
-        EventBus<LoreDialogEnd>.Pub(new LoreDialogEnd());
+        EventBus<CommentDialogEnd>.Pub(new CommentDialogEnd());
 	}
 }

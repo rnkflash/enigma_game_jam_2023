@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ConfirmDialogController : MonoBehaviour
+public class ConfirmDialogUIController : MonoBehaviour
 {
     public TMP_Text questionText;
     public BlinkingTextButton yesButton;

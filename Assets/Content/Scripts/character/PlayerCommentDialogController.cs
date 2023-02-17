@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerLoreDialogController : MonoBehaviour
+public class PlayerCommentDialogController : MonoBehaviour
 {
     private PlayerInputValues _input;
     private PlayerController player;
@@ -18,17 +18,17 @@ public class PlayerLoreDialogController : MonoBehaviour
         _input = GetComponent<PlayerInputValues>();
         player = GetComponent<PlayerController>();
         playerInteractions = GetComponentInChildren<PlayerInteraction>();
-        EventBus<LoreDialogStart>.Sub(DialogStart);
-        EventBus<LoreDialogEnd>.Sub(DialogEnd);
+        EventBus<CommentDialogStart>.Sub(DialogStart);
+        EventBus<CommentDialogEnd>.Sub(DialogEnd);
     }
 
     void OnDestroy()
     {
-        EventBus<LoreDialogStart>.Unsub(DialogStart);
-        EventBus<LoreDialogEnd>.Unsub(DialogEnd);
+        EventBus<CommentDialogStart>.Unsub(DialogStart);
+        EventBus<CommentDialogEnd>.Unsub(DialogEnd);
     }
 
-    private void DialogStart(LoreDialogStart message)
+    private void DialogStart(CommentDialogStart message)
     {
         playerInteractions.enabled = false;
         player.disableControls = true;
@@ -37,7 +37,7 @@ public class PlayerLoreDialogController : MonoBehaviour
         useButton = _input.use;
     }
 
-    private void DialogEnd(LoreDialogEnd message)
+    private void DialogEnd(CommentDialogEnd message)
     {
         playerInteractions.enabled = true;
         player.disableControls = false;

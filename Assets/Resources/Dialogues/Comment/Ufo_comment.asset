@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b623bc6fd1049dc4dbb1a790802fda5b, type: 3}
-  m_Name: PC_Lore
+  m_Script: {fileID: 11500000, guid: ad271fe2bdf11904290e7d1dc134b19b, type: 3}
+  m_Name: Ufo_comment
   m_EditorClassIdentifier: 
   sentences:
-  - is it phenom?
-  - or athlon
-  - nah probably some zpectrum shit..
+  - "\u0423\u043F\u0430\u0441\u0438 \u0433\u043E\u0441\u043F\u043E\u0434\u044C, \u0447\u0442\u043E
+    \u0437\u0430 \u0445\u0440\u0435\u043D\u044C?"
