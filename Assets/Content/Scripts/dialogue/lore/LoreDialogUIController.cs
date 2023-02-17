@@ -7,9 +7,6 @@ public class LoreDialogUIController: MonoBehaviour {
 
     public TMP_Text dialogueText;
     private Queue<string> sentences = new Queue<string>();
-    public float timePerCharacter = 0.05f;
-    private bool typingSentence = false;
-    private string currentSentence;
 
     void Awake() {
         dialogueText.text = "";
@@ -33,43 +30,17 @@ public class LoreDialogUIController: MonoBehaviour {
 			EndDialogue();
 			return;
 		}
-
-		currentSentence = sentences.Dequeue();
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence());
+		dialogueText.text = sentences.Dequeue();
 	}
 
     public void SkipSentence() {
-        if (typingSentence)
-        {
-            StopAllCoroutines();
-            typingSentence = false;
-            dialogueText.text = currentSentence;
-        } else
-            DisplayNextSentence();
+        DisplayNextSentence();
     }
-
-	private IEnumerator TypeSentence ()
-	{
-        typingSentence = true;
-		dialogueText.text = "";
-		foreach (char letter in currentSentence.ToCharArray())
-		{
-            if (!typingSentence)
-                break;
-			dialogueText.text += letter;
-			yield return new WaitForSeconds(timePerCharacter);
-		}
-        typingSentence = false;
-	}
 
 	private void EndDialogue()
 	{
-        StopAllCoroutines();
         sentences.Clear();
         dialogueText.text = "";
-        currentSentence = "";
-        typingSentence = false;
         EventBus<LoreDialogEnd>.Pub(new LoreDialogEnd());
 	}
 }

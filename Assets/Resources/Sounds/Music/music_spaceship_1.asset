@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2bf2b9c794b216409a3d814096d82c3, type: 3}
-  m_Name: mujik_ne_hodi_v_mobius
+  m_Name: music_spaceship_1
   m_EditorClassIdentifier: 
-  id: mujik_ne_hodi_v_mobius
-  clip: {fileID: 8300000, guid: da8752dd7760031499b7aa126cec9a0b, type: 3}
+  id: 2
+  clip: {fileID: 8300000, guid: ecf877f5ed6bdb147a42e17aae5b8d5c, type: 3}

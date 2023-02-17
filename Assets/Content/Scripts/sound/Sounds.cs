@@ -12,8 +12,8 @@ public class Sounds : Singleton<Sounds>
 
 	}
 
-	public AudioClip GetAudioClip(string id)
+	public AudioClip GetAudioClip(SoundId id)
 	{
-		return Array.Find(sounds, element => element.name == id).clip;
+		return Array.Find(sounds, element => element.id == id).clip;
 	}
 }

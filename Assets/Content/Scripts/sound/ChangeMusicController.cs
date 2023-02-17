@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeMusicController : MonoBehaviour
 {
-    public string track;
+    public SoundId track;
     void Start()
     {
         SoundSystem.ChangeTrack(Sounds.Instance.GetAudioClip(track));
