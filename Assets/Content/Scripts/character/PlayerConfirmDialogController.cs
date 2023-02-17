@@ -4,61 +4,57 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerDialogController : MonoBehaviour
+public class PlayerConfirmDialogController : MonoBehaviour
 {
     private PlayerInputValues _input;
     private PlayerController player;
     private PlayerInteraction playerInteractions;
     private bool useButton = false;
-
-    private bool dialogOnGoing = false;
+    private bool dialogActive = false;
 
     void Start()
     {
         _input = GetComponent<PlayerInputValues>();
         player = GetComponent<PlayerController>();
         playerInteractions = GetComponentInChildren<PlayerInteraction>();
-        EventBus<LoreDialogStart>.Sub(DialogStart);
-        EventBus<LoreDialogEnd>.Sub(DialogEnd);
+        EventBus<ConfirmDialogStart>.Sub(DialogStart);
+        EventBus<ConfirmDialogResult>.Sub(DialogEnd);
     }
 
     void OnDestroy()
     {
-        EventBus<LoreDialogStart>.Unsub(DialogStart);
-        EventBus<LoreDialogEnd>.Unsub(DialogEnd);
+        EventBus<ConfirmDialogStart>.Unsub(DialogStart);
+        EventBus<ConfirmDialogResult>.Unsub(DialogEnd);
     }
 
-    private void DialogStart(LoreDialogStart message)
+    private void DialogStart(ConfirmDialogStart message)
     {
+        dialogActive = true;
         playerInteractions.enabled = false;
         player.disableControls = true;
-        dialogOnGoing = true;
         player.GetComponent<Animator>().SetFloat("Speed", 0f);
         useButton = _input.use;
     }
 
-    private void DialogEnd(LoreDialogEnd message)
+    private void DialogEnd(ConfirmDialogResult message)
     {
+        dialogActive = false;
         playerInteractions.enabled = true;
         player.disableControls = false;
-        dialogOnGoing = false;
-    }
-
-    private void DialogNext() {
-        EventBus<LoreDialogNext>.Pub(new LoreDialogNext());
     }
 
     void Update() {
-        if (!dialogOnGoing) 
+        if (!dialogActive)
             return;
-        
+
         if (_input.use) {
             if (!useButton) {
                 useButton = true;
-                DialogNext();
+                EventBus<ConfirmDialogPressedE>.Pub(new ConfirmDialogPressedE());
             }
         } else {
             useButton = false;
         }
     }
+
 }

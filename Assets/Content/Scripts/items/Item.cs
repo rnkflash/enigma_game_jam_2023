@@ -2,23 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IConfirmDialogInitiator
 {
     public ItemData item;
     public int amount = 1;
     private InteractiveObject interactiveObject;
+    private PlayerInteraction interactor;
 
     void Start() {
         interactiveObject = GetComponentInChildren<InteractiveObject>();
-        interactiveObject.onInteractListeners += PickUp;
+        interactiveObject.onInteractListeners += Interact;
     }
 
     void OnDestroy() {
-        interactiveObject.onInteractListeners -= PickUp;
+        interactor = null;
+        interactiveObject.onInteractListeners -= Interact;
     }
 
-    public void PickUp(PlayerInteraction interactor) {
+    private void Interact(PlayerInteraction interactor) {
+        this.interactor = interactor;
+        EventBus<ConfirmDialogStart>.Pub(new ConfirmDialogStart() {
+            initiator = this,
+            question = "Podobrat " + item.name + "?",
+            yes = "Da",
+            no = "Niet"
+        });
+    }
+
+    private void PickUp() {
         interactiveObject.selectable = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
@@ -28,5 +41,11 @@ public class Item : MonoBehaviour
             Player.Instance.AddItem(item, amount);
             Destroy(gameObject);
         });
+    }
+
+    public void ConfirmDialog(bool result)
+    {
+        if (result)
+            PickUp();
     }
 }

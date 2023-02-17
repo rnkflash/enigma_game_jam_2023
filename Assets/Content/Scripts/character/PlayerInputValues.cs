@@ -10,6 +10,7 @@ public class PlayerInputValues : MonoBehaviour
 		public bool sprint;
 		public bool aim;
 		public bool use;
+		public bool fire;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -51,6 +52,11 @@ public class PlayerInputValues : MonoBehaviour
 			AimInput(value.isPressed);
 		}
 
+		public void OnFire(InputValue value)
+		{
+			FireInput(value.isPressed);
+		}
+
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
@@ -79,6 +85,11 @@ public class PlayerInputValues : MonoBehaviour
 		public void AimInput(bool newValue)
 		{
 			aim = newValue;
+		}
+
+		public void FireInput(bool newValue)
+		{
+			fire = newValue;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
