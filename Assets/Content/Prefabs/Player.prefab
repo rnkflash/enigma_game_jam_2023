@@ -195,9 +195,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5a34dd0eb3b7e3544a965f9504cdfa76, type: 3}
   - {fileID: 8300000, guid: 65fa7632990d5b545b393558a10ce9b4, type: 3}
   - {fileID: 8300000, guid: e8212dba03b4d2f40b4b4e04f3ba6776, type: 3}
-  softLanding: {fileID: 8300000, guid: 70a0ece0bcf8ce641bb2ecc51f954534, type: 3}
-  hardLanding: {fileID: 8300000, guid: 2bbf7edd135d5ef40a0eccc31554cf9d, type: 3}
-  jump: {fileID: 8300000, guid: ee0e08ef1d25f9a489ac6b370bc52251, type: 3}
+  softLanding: {fileID: 0}
+  hardLanding: {fileID: 0}
+  jump: {fileID: 0}
 --- !u!1 &982267663491571453
 GameObject:
   m_ObjectHideFlags: 0

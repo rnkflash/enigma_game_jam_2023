@@ -14544,7 +14544,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SOLAR SYSTEM
+  m_text: I.S.E
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7fb1789d273c321458aa8974c9f25509, type: 2}
   m_sharedMaterial: {fileID: 640079836189244218, guid: 7fb1789d273c321458aa8974c9f25509,
