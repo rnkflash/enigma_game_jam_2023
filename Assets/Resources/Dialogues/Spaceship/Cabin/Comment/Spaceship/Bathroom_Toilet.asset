@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Bathroom_Toilet
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - The waste disposal system is vacuum-based, making this toilet very noisy. But
+    at least we're not wasting precious water on the ship.

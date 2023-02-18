@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68110a8d6cbead147b5de57c0bbd66e6, type: 3}
+  m_Name: Journal
+  m_EditorClassIdentifier: 
+  sentences:
+  - 'A report on the comparison of economic growth and the well-being of the average
+    citizen of Earth in recent years indicates a positive trend in this area. The
+    advancement of robotics and its implementation in the corporate environment of
+    our factories has led to a reduction in working hours without a decrease in wages,
+    allowing people to devote more time to their personal lives. This technological
+    breakthrough was the result of harmonious interaction between scientists, engineers,
+    and managers. However, it is worth considering: would this breakthrough have
+    occurred without our scientific planning committee?'
+  - Last year, our scientists implemented a plan to apply their areas of research
+    to the everyday life of people. They explored robotics, planetary geology, social
+    groups, and in particular, the development of Pavlovian artificial intelligence
+    in the economic levers of our planet. However, there are also lagging areas,
+    such as Noostika, a promising science that studies intelligent extraterrestrial
+    objects such as S-class asteroids. However, their research has hit a dead end.
+  - 'It has been discovered that S-class asteroids can interact with humans and send
+    primitive signals, completely overturning our understanding of extraterrestrial
+    life. There are theories that beyond our solar system, there may be entire planets
+    with a rational noosphere. Currently, only three such asteroids are known: Ceres,
+    Pallas, and Eunomia. Their study could give people a deep understanding of the
+    universe and the possibilities of human intelligence, which could reach a new
+    level of evolution. However, despite the potential of this area and its potential
+    in studying rational extraterrestrial objects, Noostika has encountered obstacles.
+    In connection with this, the Scientific Planning Committee has decided to reduce
+    funding for this area and close the Russian-Chinese expedition on the Eunomia
+    and Ceres asteroids, leaving only research on the Pallas asteroid.'

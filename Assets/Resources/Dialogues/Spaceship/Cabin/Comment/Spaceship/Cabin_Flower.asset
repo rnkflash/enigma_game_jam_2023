@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Cabin_Flower
   m_EditorClassIdentifier: 
   sentences:
-  - "\u0426\u0432\u0435\u0442\u043E\u043A \u043D\u0435 \u0437\u0430\u0432\u044F\u043B?"
+  - This young Dracaena creates a pleasant atmosphere, bringing a homely feel, even
+    though it is not a real plant.

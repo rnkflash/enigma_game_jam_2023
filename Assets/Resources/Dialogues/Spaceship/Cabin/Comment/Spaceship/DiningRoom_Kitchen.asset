@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DiningRoom_Kitchen
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - Built-in countertop with instruments and a coffee maker. Good coffee is an essential
+    element of every scientific researcher.

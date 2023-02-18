@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: DiningRoom_FoodMachine
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - Freeze-dried food consisting only of healthy ingredients and sorted by category
+    and calorie content. As a scientific researcher, I'm only entitled to a certain
+    2000-calorie diet. I'm not hungry right now.

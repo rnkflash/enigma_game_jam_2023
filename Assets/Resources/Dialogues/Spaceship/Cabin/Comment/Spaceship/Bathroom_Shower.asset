@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad271fe2bdf11904290e7d1dc134b19b, type: 3}
-  m_Name: Cabin_DoorLocked
+  m_Name: Bathroom_Shower
   m_EditorClassIdentifier: 
   sentences:
-  - It seems like I've accidentally lost my access card. I need to find it.
+  - Here, a non-typical steam system is used instead of a standard shower. People
+    here essentially wash with warm steam, which allows them to use tens of times
+    less water.

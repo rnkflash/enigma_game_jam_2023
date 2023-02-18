@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Cabin_Bed
   m_EditorClassIdentifier: 
   sentences:
-  - "\u0426\u0432\u0435\u0442\u043E\u043A \u043D\u0435 \u0437\u0430\u0432\u044F\u043B?"
+  - 'Droids will soon replace us for clean laundry. It''s better to trust technology
+    than waste time and energy on routine tasks.
+
+'

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Bathroom_Boxes
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - Here are various items such as toothpaste, shampoos, towels, and other personal
+    hygiene products. None of these are necessary for me right now.

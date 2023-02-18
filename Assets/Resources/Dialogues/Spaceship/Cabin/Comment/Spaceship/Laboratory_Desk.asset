@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Laboratory_Desk
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - A normal note board has observations made by Andrei throughout the night written
+    on it.

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Gateway_Boxes
   m_EditorClassIdentifier: 
   sentences:
-  - "\u042D\u0442 \u0447\u0435 \u043A\u043B\u044E\u0447 \u043A\u0430\u0440\u0442\u0430?"
+  - These are the boxes of materials intended for repairing the gateway. Josef is
+    better at this.
