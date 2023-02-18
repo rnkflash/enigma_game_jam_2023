@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad271fe2bdf11904290e7d1dc134b19b, type: 3}
-  m_Name: DiningRoomDoorYozef_Ru
+  m_Name: EngineeringRoom_Generator
   m_EditorClassIdentifier: 
   sentences:
   - "\u042D\u0442\u043E \u043A\u0430\u044E\u0442\u0430 \u0419\u043E\u0437\u0435\u0444\u0430,
