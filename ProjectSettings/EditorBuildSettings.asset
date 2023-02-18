@@ -18,11 +18,32 @@ EditorBuildSettings:
     path: Assets/Content/Scenes/Game/win.unity
     guid: 7dc9f38834657f54780e41f4da2586d4
   - enabled: 1
-    path: Assets/Content/Scenes/Game/levels/level_01.unity
-    guid: 856998401d3398449b50705e1deceb28
+    path: Assets/Content/Scenes/Level_MegaStructure_01_Prologue.unity
+    guid: 0944287e22011df43a8a098458d0fd88
   - enabled: 1
-    path: Assets/Content/Scenes/Game/levels/level_02.unity
-    guid: b6ada5fe21cd0b541838bf1bfea782b6
+    path: Assets/Content/Scenes/Level_Spaceship_01_Cabin.unity
+    guid: 52dad9258cfe47b4a951dac2ea174f65
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Spaceship_02_Bathroom.unity
+    guid: a68195612ba41bd4ab9018ae96760be3
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Spaceship_03_DiningRoom.unity
+    guid: 2b6ea176f00c42f44926a35352b44620
+  - enabled: 1
+    path: "Assets/Content/Scenes/Level_Spaceship_04_\u0421orridor.unity"
+    guid: ae7193f42adfadc439994c577d6b0d49
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Spaceship_05_Laboratory.unity
+    guid: 774be8972cc697648a5908050cffdc71
+  - enabled: 1
+    path: "Assets/Content/Scenes/Level_Spaceship_06_\u0421ontrolRoom.unity"
+    guid: d5aa231399a278b4491b4408cc549cbb
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Spaceship_07_EngineeringBay.unity
+    guid: e9a98a716dde1814198a38714164cbd5
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_Spaceship_08_Gateway.unity
+    guid: bc77313127fd905489c0347d473d0cee
   - enabled: 1
     path: Assets/Content/Scenes/Level_Station_01_ControlRoom.unity
     guid: 037bea0fe974121439c8a9fb6859fdc8
@@ -47,6 +68,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Content/Scenes/Level_Station_08_TrainStation.unity
     guid: ff5728561f6db0148819f8e7460909aa
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_MegaStructure_02_Arrival.unity
+    guid: 347a9dd27c408d44e945c25be701551e
+  - enabled: 1
+    path: Assets/Content/Scenes/Level_MegaStructure_03_EmptyRoom.unity
+    guid: f10bdbc2e8c1a5b4f878e3b704e60c5b
+  - enabled: 1
+    path: Assets/Content/Scenes/Game/levels/level_01.unity
+    guid: 856998401d3398449b50705e1deceb28
+  - enabled: 1
+    path: Assets/Content/Scenes/Game/levels/level_02.unity
+    guid: b6ada5fe21cd0b541838bf1bfea782b6
   - enabled: 1
     path: Assets/Content/Scenes/Game/levels/mobius_up.unity
     guid: 4b3655ca2b9ce9b42995bdbd55cb6e0f
