@@ -122,9 +122,14 @@ MonoBehaviour:
   _renderPassEvent: 450
   _outlineMaterial: {fileID: 2100000, guid: c03d9c30ba3e5aa4c982d34f27221bb6, type: 2}
   _renderTextureName: _OutlineRenderTexture
+  _bluredTextureName: _OutlineBluredTexture
   _renderSettings:
     OverrideMaterial: {fileID: 2100000, guid: 4b8783dfa6f53b240ba4121c95c0f09a, type: 2}
     OverrideMaterialPassIndex: 0
     LayerMask:
       serializedVersion: 2
       m_Bits: 1024
+  _blurSettings:
+    BlurMaterial: {fileID: 2100000, guid: ef90ae377025c734d8b32d08058f9570, type: 2}
+    DownSample: 1
+    PassesCount: 2

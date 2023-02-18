@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
-  m_Shader: {fileID: 4800000, guid: 172dc492db40ea24bbb4e73896fbdf77, type: 3}
+  m_Name: Custom_Blur
+  m_Shader: {fileID: 4800000, guid: 696b93f9171ee2e4e9e00c1a273d5f91, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -19,12 +19,12 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _DstBlend: 1
-    - _Intensity: 5
-    - _SrcBlend: 1
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 0.9200001, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
