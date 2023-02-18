@@ -9389,6 +9389,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5562903620950646284, guid: 04e6bdc0911c5724490557b8468fe361,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.4295654
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e6bdc0911c5724490557b8468fe361, type: 3}
 --- !u!1 &1636520018
@@ -11810,6 +11815,9 @@ MonoBehaviour:
   amount: 1
   model: {fileID: 324955667684124595}
   pickedUp: 0
+  beforePickupComment: {fileID: 11400000, guid: 1f8f8114ccefd89429ececf9fc6e78b0,
+    type: 2}
+  afterPickupComment: {fileID: 11400000, guid: 6245497e46c56424db722dd4c93ed978, type: 2}
 --- !u!114 &4911530876475690908
 MonoBehaviour:
   m_ObjectHideFlags: 0

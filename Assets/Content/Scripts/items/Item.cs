@@ -13,6 +13,9 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
     public GameObject model;
     public bool pickedUp = false;
 
+    public CommentDialogueSO beforePickupComment;
+    public CommentDialogueSO afterPickupComment;
+
     void Start() {
         interactiveObject = GetComponentInChildren<InteractiveObject>();
         interactiveObject.onInteractListeners += Interact;
@@ -27,6 +30,25 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
 
     private void Interact(PlayerInteraction interactor) {
         this.interactor = interactor;
+        if (beforePickupComment != null)
+        {
+            EventBus<CommentDialogEnd>.Sub(BeforePickupCommentEnded);
+            EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = beforePickupComment});
+            
+        } else {
+            EventBus<ConfirmDialogStart>.Pub(new ConfirmDialogStart() {
+                initiator = this,
+                question = "Podobrat " + item.name + "?",
+                yes = "Da",
+                no = "Niet"
+            });
+        }
+    }
+
+    private void BeforePickupCommentEnded(CommentDialogEnd message)
+    {
+        EventBus<CommentDialogEnd>.Unsub(BeforePickupCommentEnded);
+
         EventBus<ConfirmDialogStart>.Pub(new ConfirmDialogStart() {
             initiator = this,
             question = "Podobrat " + item.name + "?",
@@ -44,6 +66,11 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
             model.SetActive(false);
             DOTween.Kill(model);
         });
+
+        if (afterPickupComment != null)
+        {
+            EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = afterPickupComment});
+        }
     }
 
     public void ConfirmDialog(bool result)
