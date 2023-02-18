@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         if (!CheckTagMask(other.tag))
             return;
         var item = other.GetComponent<InteractiveObject>();
-        item.Select(false);
+        item.Select(false, this);
         items.Remove(item);
     }
 
@@ -70,13 +70,13 @@ public class PlayerInteraction : MonoBehaviour
             .FirstOrDefault();
         if (item != null) {
             if (selectedItem != item) {
-                selectedItem?.Select(false);
+                selectedItem?.Select(false, this);
                 selectedItem = item;
-                selectedItem.Select(true);
+                selectedItem.Select(true, this);
             }
         } else {
             if (selectedItem != null) {
-                selectedItem.Select(false);
+                selectedItem.Select(false, this);
                 selectedItem = null;
             }
         }
