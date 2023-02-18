@@ -13,16 +13,37 @@ public class InteractiveObject : MonoBehaviour
     public event OnInteract onStartSelectListeners;
     public event OnInteract onStopSelectListeners;
 
+    public GameObject[] switchLayerObjects;
+    public string switchToLayer = "Select";
+    private int[] savedLayers;
+
     void Start() {
         selectUI = GetComponentInChildren<SelectUI>();
+
+        savedLayers = new int[switchLayerObjects.Length];
     }
 
     public void Select(bool selected, PlayerInteraction player) {
         if (selected) {
             selectUI?.Appear();
+
+            var index = 0;
+            foreach (var item in switchLayerObjects)
+            {
+                savedLayers[index++] = item.layer;
+                item.layer = LayerMask.NameToLayer(switchToLayer);
+            }
+
             onStartSelectListeners?.Invoke(player);
         }
         else {
+
+            var index = 0;
+            foreach (var item in switchLayerObjects)
+            {
+                item.layer = savedLayers[index++];
+            }
+
             selectUI?.Disappear();
             onStopSelectListeners?.Invoke(player);
         }
