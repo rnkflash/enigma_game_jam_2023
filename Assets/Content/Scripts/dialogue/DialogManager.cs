@@ -5,16 +5,12 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    private CommentDialogUIController commentDialog;
-    private ConfirmDialogUIController confirmDialog;
-    private LoreDialogUIController loreDialog;
+    public CommentDialogUIController commentDialog;
+    public ConfirmDialogUIController confirmDialog;
+    public LoreDialogUIController loreDialog;
     
     void Start()
     {
-        commentDialog = GetComponentInChildren<CommentDialogUIController>();
-        confirmDialog = GetComponentInChildren<ConfirmDialogUIController>();
-        loreDialog = GetComponentInChildren<LoreDialogUIController>();
-
         commentDialog.gameObject.SetActive(false);
         confirmDialog.gameObject.SetActive(false);
         loreDialog.gameObject.SetActive(false);
