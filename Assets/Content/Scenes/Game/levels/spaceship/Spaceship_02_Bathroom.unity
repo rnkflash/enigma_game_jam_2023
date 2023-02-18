@@ -11377,6 +11377,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6677699450544659578, guid: e087ae4d8a5e83243b95ab24130fa0f2,
+        type: 3}
+      propertyPath: open
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677699450544659578, guid: e087ae4d8a5e83243b95ab24130fa0f2,
+        type: 3}
+      propertyPath: locked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6677699450544659579, guid: e087ae4d8a5e83243b95ab24130fa0f2,
         type: 3}
       propertyPath: m_RootOrder

@@ -12,7 +12,7 @@ public class DoorObject : MonoBehaviour
     public bool noAnimator = false;
     private bool sequenceOngoing = false;
 
-    public bool open = true;
+    public bool locked = false;
 
 	private void Start()
 	{
@@ -40,12 +40,12 @@ public class DoorObject : MonoBehaviour
     private void OnSelect(PlayerInteraction interactor)
     {
         if (!sequenceOngoing)
-            doorIndicator?.SetColor(open ? DoorIndicator.Colors.GREEN : DoorIndicator.Colors.RED);
+            doorIndicator?.SetColor(locked ? DoorIndicator.Colors.RED : DoorIndicator.Colors.GREEN);
     }
 
     private void OnInteract(PlayerInteraction interactor)
     {
-        if (!open)
+        if (locked)
             return;
         
         ExitSequence(interactor.GetComponentInParent<PlayerController>());
