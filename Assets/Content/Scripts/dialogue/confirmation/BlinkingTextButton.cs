@@ -22,6 +22,10 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
         StopBlinking();
     }
 
+    void OnDestroy() {
+        DOTween.Kill(bg);
+    }
+
     private void StartBlinking() {
         DOTween.Kill(bg);
         SetAlpha(0.05f);

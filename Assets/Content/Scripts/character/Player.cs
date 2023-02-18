@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,5 +15,12 @@ public class Player : Singleton<Player>
         if (!inventory.ContainsKey(item))
             inventory[item] = 0;
         inventory[item] += amount;
+    }
+
+    public bool HasItem(ItemData item)
+    {
+        if (item == null)
+            return false;
+        return inventory.ContainsKey(item) && inventory[item] > 0;
     }
 }

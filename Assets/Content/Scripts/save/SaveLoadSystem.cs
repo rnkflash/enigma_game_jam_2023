@@ -35,7 +35,6 @@ namespace SaveSystem {
                 string objectName = saveObject.gameObject.name;
                 if (!sceneSaveMap.ContainsKey(objectName))
                     continue;
-                
                 saveObject.Load(sceneSaveMap[objectName]);
             }
         }

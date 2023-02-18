@@ -8,6 +8,8 @@ namespace SaveSystem {
         Nothing = 0,
         Position = 1,
         Rotation = 2,
-        RigidBody = 4
+        RigidBody = 4,
+        Item = 8,
+        Door = 16
     }
 }

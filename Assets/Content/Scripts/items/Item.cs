@@ -10,10 +10,14 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
     public int amount = 1;
     private InteractiveObject interactiveObject;
     private PlayerInteraction interactor;
+    public GameObject model;
+    public bool pickedUp = false;
 
     void Start() {
         interactiveObject = GetComponentInChildren<InteractiveObject>();
         interactiveObject.onInteractListeners += Interact;
+
+        SetPickedUp(pickedUp);
     }
 
     void OnDestroy() {
@@ -32,14 +36,13 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
     }
 
     private void PickUp() {
+        pickedUp = true;
         interactiveObject.selectable = false;
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Collider>().enabled = false;
-        transform.DOScale(0f, 0.25f);
-        transform.DOMove(interactor.pickupPoint.position, 0.25f).OnComplete(()=> {
+        model.transform.DOScale(0f, 0.25f);
+        model.transform.DOMove(interactor.pickupPoint.position, 0.25f).OnComplete(()=> {
             Player.Instance.AddItem(item, amount);
-            Destroy(gameObject);
+            model.SetActive(false);
+            DOTween.Kill(model);
         });
     }
 
@@ -47,5 +50,11 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
     {
         if (result)
             PickUp();
+    }
+
+    public void SetPickedUp(bool value) {
+        pickedUp = value;
+        interactiveObject.selectable = !value;
+        model.SetActive(!value);
     }
 }
