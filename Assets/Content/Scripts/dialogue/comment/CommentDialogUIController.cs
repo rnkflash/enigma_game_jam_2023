@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class CommentDialogUIController: MonoBehaviour {
 
@@ -14,6 +15,23 @@ public class CommentDialogUIController: MonoBehaviour {
     void Awake() {
         dialogueText.text = "";
         sentences.Clear();
+
+        
+    }
+
+    public void SetActive(bool active) {
+        if (active)
+            EventBus<DialogButtonPressed>.Sub(OnButtonPressed);
+        else
+            EventBus<DialogButtonPressed>.Unsub(OnButtonPressed);
+
+        gameObject.SetActive(active);
+    }
+
+    private void OnButtonPressed(DialogButtonPressed message)
+    {
+        if (message.button == DialogButtonPressed.Type.Submit || message.button == DialogButtonPressed.Type.LeftClick)
+            SkipSentence();
     }
 
     public void StartDialog(CommentDialogueSO data) {

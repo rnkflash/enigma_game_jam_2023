@@ -10,25 +10,60 @@ public class ConfirmDialogUIController : MonoBehaviour
     public BlinkingTextButton yesButton;
     public BlinkingTextButton noButton;
     private IConfirmDialogInitiator initiator;
+
+    private BlinkingTextButton[] choices;
+    private int index;
     
     void Awake()
     {
         yesButton.onClickListeners += YesButtonPressed;
         noButton.onClickListeners += NoButtonPressed;
 
-        EventBus<ConfirmDialogPressedE>.Sub(OnEPressed);
+        choices = new BlinkingTextButton[2] {
+            yesButton, noButton
+        };
+
+        index = 0;
     }
 
     void OnDestroy() {
         yesButton.onClickListeners -= YesButtonPressed;
         noButton.onClickListeners -= NoButtonPressed;
 
-        EventBus<ConfirmDialogPressedE>.Unsub(OnEPressed);
     }
 
-    private void OnEPressed(ConfirmDialogPressedE message)
+    public void SetActive(bool active) {
+        if (active)
+            EventBus<DialogButtonPressed>.Sub(OnButtonPressed);
+        else
+            EventBus<DialogButtonPressed>.Unsub(OnButtonPressed);
+        
+        gameObject.SetActive(active);
+    }
+
+    private void OnButtonPressed(DialogButtonPressed message)
     {
-        YesButtonPressed();
+        if (message.button == DialogButtonPressed.Type.Submit) {
+            if (choices[index] == yesButton)
+                YesButtonPressed();
+            else
+                NoButtonPressed();
+        } else 
+        if (message.button == DialogButtonPressed.Type.Left) {
+            choices[index].StopBlinking();
+            index--;
+            if (index < 0)
+                index = 1;
+            choices[index].StartBlinking();
+        }
+        else
+        if (message.button == DialogButtonPressed.Type.Right) {
+            choices[index].StopBlinking();
+            index++;
+            if (index > 1)
+                index = 0;
+            choices[index].StartBlinking();
+        }
     }
 
     public void StartDialog(IConfirmDialogInitiator initiator, string question, string yes, string no) {
@@ -38,6 +73,8 @@ public class ConfirmDialogUIController : MonoBehaviour
         noButton.SetText(no);
         yesButton.StopBlinking();
         noButton.StopBlinking();
+        index = 0;
+        choices[index].StartBlinking();
     }
 
     private void YesButtonPressed()
