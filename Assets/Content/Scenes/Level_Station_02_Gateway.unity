@@ -306,7 +306,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh971120
+  m_Name: pb_Mesh1078996
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1564,7 +1564,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh970966
+  m_Name: pb_Mesh1078828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2863,7 +2863,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh971066
+  m_Name: pb_Mesh1078938
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4052,7 +4052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f4690c8dd99f47a4a0f7319597231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkyFile: {fileID: 4900000, guid: 8b6ac04d1ba49954bac760f526b8adc1, type: 3}
+  inkyFile: {fileID: 4900000, guid: a04694ccd03fb6c48bdac7ec8dcc41af, type: 3}
   animator: {fileID: 2080850576}
   noAnimator: 0
 --- !u!65 &776583033
@@ -6675,7 +6675,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh971318
+  m_Name: pb_Mesh1079216
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8438,6 +8438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: josef@MixamoRigged
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6cee1bc916419fc4fae1027f9c602e93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5062639251171161661, guid: 6cee1bc916419fc4fae1027f9c602e93,
         type: 3}
       propertyPath: m_IsActive
@@ -8990,7 +8995,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh970936
+  m_Name: pb_Mesh1078792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
