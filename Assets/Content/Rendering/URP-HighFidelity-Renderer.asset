@@ -129,7 +129,4 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 1024
-  _blurSettings:
     BlurMaterial: {fileID: 2100000, guid: ef90ae377025c734d8b32d08058f9570, type: 2}
-    DownSample: 1
-    PassesCount: 2

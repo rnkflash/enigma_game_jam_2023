@@ -12,7 +12,7 @@ Enter password:
 
 
 ===knows_password_dialog===
-введите пароль:
+Enter password:
 * [Random password]
 * [Old password]
 * [{password}]
