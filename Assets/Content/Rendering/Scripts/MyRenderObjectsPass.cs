@@ -6,7 +6,6 @@ using UnityEngine.Rendering.Universal;
 public class MyRenderObjectsPass : ScriptableRenderPass
 {
     private RenderTargetHandle _destination;
-    private RenderTargetIdentifier _depth;
 
     private Material _overrideMaterial;
 
@@ -23,14 +22,12 @@ public class MyRenderObjectsPass : ScriptableRenderPass
         _filteringSettings = new FilteringSettings(RenderQueueRange.opaque, layerMask);
         _renderStateBlock = new RenderStateBlock(RenderStateMask.Nothing);
     }
-
-    public void SetDepthTexture(RenderTargetIdentifier depth)
-    { _depth = depth; }
+    
 
     public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
     {
         cmd.GetTemporaryRT(_destination.id, cameraTextureDescriptor);
-        ConfigureTarget(_destination.Identifier(), _depth);
+        ConfigureTarget(_destination.Identifier());
         ConfigureClear(ClearFlag.Color, Color.clear);
     }
 

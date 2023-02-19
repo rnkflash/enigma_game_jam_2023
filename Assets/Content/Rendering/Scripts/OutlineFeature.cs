@@ -11,15 +11,16 @@ public class OutlineFeature : ScriptableRendererFeature
         public int OverrideMaterialPassIndex = 0;
         [Space]
         public LayerMask LayerMask = 0;
+        public Material BlurMaterial= null;
     }
 
-    [Serializable]
-    public class BlurSettings
+    //[Serializable]
+    /*public class BlurSettings
     {
         public Material BlurMaterial;
         public int DownSample = 1;
         public int PassesCount = 1;
-    }
+    }*/
 
     [SerializeField] public RenderPassEvent _renderPassEvent;
 
@@ -28,7 +29,7 @@ public class OutlineFeature : ScriptableRendererFeature
     [SerializeField] private string _bluredTextureName;
 
     [SerializeField] private RenderSettings _renderSettings;
-    [SerializeField] private BlurSettings _blurSettings;
+    //[SerializeField] private BlurSettings _blurSettings;
 
     private RenderTargetHandle _bluredTexture;
     private RenderTargetHandle _renderTexture;
@@ -43,7 +44,7 @@ public class OutlineFeature : ScriptableRendererFeature
         _bluredTexture.Init(_bluredTextureName);
 
         _renderPass = new MyRenderObjectsPass(_renderTexture, _renderSettings.LayerMask, _renderSettings.OverrideMaterial);
-        _blurPass = new BlurPass(_renderTexture.Identifier(), _bluredTexture, _blurSettings.BlurMaterial, _blurSettings.DownSample, _blurSettings.PassesCount);
+        _blurPass = new BlurPass(_bluredTexture, _renderSettings.LayerMask, _renderSettings.BlurMaterial);
         _outlinePass = new OutlinePass(_outlineMaterial);
 
         _renderPass.renderPassEvent = _renderPassEvent;
@@ -54,7 +55,7 @@ public class OutlineFeature : ScriptableRendererFeature
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
         var depthTexture = renderer.cameraDepthTarget;
-        _renderPass.SetDepthTexture(depthTexture);
+        //_renderPass.SetDepthTexture(depthTexture);
 
         renderer.EnqueuePass(_renderPass);
         renderer.EnqueuePass(_blurPass);

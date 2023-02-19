@@ -1,70 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class BlurPass : ScriptableRenderPass
 {
-    private int _tmpBlurRTId1 = Shader.PropertyToID("_TempBlurTexture1");
-    private int _tmpBlurRTId2 = Shader.PropertyToID("_TempBlurTexture2");
-
-    private RenderTargetIdentifier _tmpBlurRT1;
-    private RenderTargetIdentifier _tmpBlurRT2;
-
-    private RenderTargetIdentifier _source;
     private RenderTargetHandle _destination;
 
-    private int _passesCount;
-    private int _downSample;
     private Material _blurMaterial;
 
+    private List<ShaderTagId> _shaderTagIdList = new List<ShaderTagId>() { new ShaderTagId("UniversalForward") };
+    private FilteringSettings _filteringSettings;
+    private RenderStateBlock _renderStateBlock;
 
-    public BlurPass(RenderTargetIdentifier source, RenderTargetHandle destination, Material blurMaterial, int downSample, int passesCount)
+    public BlurPass(RenderTargetHandle destination, int layerMask, Material blurMaterial)
     {
-        _source = source;
         _destination = destination;
 
         _blurMaterial = blurMaterial;
-        _downSample = downSample;
-        _passesCount = passesCount;
+
+        _filteringSettings = new FilteringSettings(RenderQueueRange.opaque, layerMask);
+        _renderStateBlock = new RenderStateBlock(RenderStateMask.Nothing);
     }
+    
 
     public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
     {
-        var width = Mathf.Max(1, cameraTextureDescriptor.width >> _downSample);
-        var height = Mathf.Max(1, cameraTextureDescriptor.height >> _downSample);
-        var blurTextureDesc = new RenderTextureDescriptor(width, height, RenderTextureFormat.ARGB32, 0, 0);
-
-        _tmpBlurRT1 = new RenderTargetIdentifier(_tmpBlurRTId1);
-        _tmpBlurRT2 = new RenderTargetIdentifier(_tmpBlurRTId2);
-
-        cmd.GetTemporaryRT(_tmpBlurRTId1, blurTextureDesc, FilterMode.Bilinear);
-        cmd.GetTemporaryRT(_tmpBlurRTId2, blurTextureDesc, FilterMode.Bilinear);
-        cmd.GetTemporaryRT(_destination.id, blurTextureDesc, FilterMode.Bilinear);
-
+        cmd.GetTemporaryRT(_destination.id, cameraTextureDescriptor);
         ConfigureTarget(_destination.Identifier());
+        ConfigureClear(ClearFlag.Color, Color.clear);
     }
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
-        var cmd = CommandBufferPool.Get("BlurPass");
+        SortingCriteria sortingCriteria = renderingData.cameraData.defaultOpaqueSortFlags;
+        DrawingSettings drawingSettings = CreateDrawingSettings(_shaderTagIdList, ref renderingData, sortingCriteria);
+        drawingSettings.overrideMaterial = _blurMaterial;
 
-        if (_passesCount > 0)
-        {
-            cmd.Blit(_source, _tmpBlurRT1, _blurMaterial, 0);
-            for (int i = 0; i < _passesCount - 1; i++)
-            {
-                cmd.Blit(_tmpBlurRT1, _tmpBlurRT2, _blurMaterial, 0);
-                var t = _tmpBlurRT1;
-                _tmpBlurRT1 = _tmpBlurRT2;
-                _tmpBlurRT2 = t;
-            }
-            cmd.Blit(_tmpBlurRT1, _destination.Identifier());
-        }
-        else
-            cmd.Blit(_source, _destination.Identifier());
-
-        context.ExecuteCommandBuffer(cmd);
-        CommandBufferPool.Release(cmd);
+        context.DrawRenderers(renderingData.cullResults, ref drawingSettings, ref _filteringSettings, ref _renderStateBlock);
     }
 }
+
+
