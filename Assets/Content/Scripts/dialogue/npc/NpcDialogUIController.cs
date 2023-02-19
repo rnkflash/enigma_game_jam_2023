@@ -19,6 +19,7 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
     private float timePerCharacter = 0.01f;
     private int currentIndex = 0;
     private int currentChoiceNumber = 0;
+    private bool dontTypeNextSentence;
 
     void Awake()
     {
@@ -103,8 +104,14 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
     private void ContinueStory() {
         if (story.canContinue) {
             currentSentence = story.Continue();
+            ParseTags();
             StopAllCoroutines();
-		    StartCoroutine(TypeSentence());
+            if (dontTypeNextSentence) {
+                dontTypeNextSentence = false;
+		        dialogText.text = currentSentence;
+                ShowChoices();
+            } else
+                StartCoroutine(TypeSentence());
         } else {
             EndDialogue();
         }
@@ -189,6 +196,19 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
                 SelectChoice(i);
                 break;
             }
+        }
+    }
+
+    private void ParseTags() {
+        var tags = story.currentTags;
+        foreach (string tag in tags)
+        {
+            switch(tag.ToLower()) {
+                case "dontype":
+                    dontTypeNextSentence = true;
+                break;
+            }
+
         }
     }
 }
