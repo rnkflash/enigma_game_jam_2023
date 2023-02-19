@@ -1,10 +1,14 @@
 INCLUDE _Globals/Globals.ink
 
-{ knows_password == false: ->FirstDialog | -> already_knows_password}
+{ has_keycard == true: ->has_key_card | { knows_password == true: ->already_knows_password | -> FirstDialog} }
 
 ===already_knows_password===
 ты уже знаешь пароль, отстань
 -> END
+
+===has_key_card===
+о где ты взял этот ключ? попробуй использовать его на той двери
+-> FirstDialog
 
 === FirstDialog ===
 Van Lu, is that you? I am very busy now. If you have something to say, please say it quickly.

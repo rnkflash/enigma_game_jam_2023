@@ -31,8 +31,9 @@ public class DialogVariables {
     private void VariableChanged(string name, Ink.Runtime.Object value) {
         if (variables.ContainsKey(name)) {
             variables.Remove(name);
-            variables.Add(name, value);
         }
+
+        variables.Add(name, value);
     }
 
     private void VariablesToStory(Story story) {
