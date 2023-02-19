@@ -14,6 +14,7 @@ public class DoorObject : MonoBehaviour
     public CommentDialogueSO lockedDialog;
     public CommentDialogueSO unlockDialog;
     public ItemData unlockItem;
+    public string unlockTrigger;
 
     private PlayerInteraction lastInteractor;
 
@@ -28,6 +29,9 @@ public class DoorObject : MonoBehaviour
         interactiveObject.onStopSelectListeners += OnDeselect;
         interactiveObject.onInteractListeners += OnInteract;
 
+        TryToUnlockWithTrigger();
+
+        EventBus<TriggerWasSet>.Sub(OnTriggerWasSet);
 	}
 
     void OnDestroy() {
@@ -36,10 +40,26 @@ public class DoorObject : MonoBehaviour
         interactiveObject.onInteractListeners -= OnInteract;
 
         lastInteractor = null;
+
+        EventBus<TriggerWasSet>.Unsub(OnTriggerWasSet);
+    }
+
+    private void OnTriggerWasSet(TriggerWasSet message)
+    {
+        TryToUnlockWithTrigger();
+    }
+
+    private void TryToUnlockWithTrigger() {
+        if (locked && unlockTrigger != null && unlockTrigger != "")
+            if (Player.Instance.GetTrigger(unlockTrigger)) {
+                    locked = false;
+            }
     }
 
     public void SetLocked(bool value) {
         locked = value;
+
+        TryToUnlockWithTrigger();       
     }
 
     private void OnDeselect(PlayerInteraction interactor)
@@ -58,13 +78,16 @@ public class DoorObject : MonoBehaviour
     {
         lastInteractor = interactor;
         if (locked) {
+            if (Player.Instance.GetTrigger(unlockTrigger)) {
+                locked = false;
+                doorIndicator?.SetColor(DoorIndicator.Colors.GREEN);
+            } else
             if (Player.Instance.HasItem(unlockItem)) {
                 locked = false;
                 doorIndicator?.SetColor(DoorIndicator.Colors.GREEN);
                 EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = unlockDialog});
                 EventBus<CommentDialogEnd>.Sub(WaitForDialogEnd);
-            }
-            else
+            } else
                 EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = lockedDialog});
             return;
         }

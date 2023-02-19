@@ -210,9 +210,17 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
         var tags = story.currentTags;
         foreach (string tag in tags)
         {
-            switch(tag.ToLower()) {
+            var parts = tag.Split(' ');
+            switch(parts[0].ToLower()) {
                 case "donttype":
                     dontTypeNextSentence = true;
+                break;
+                case "trigger":
+                    if (parts.Length > 1) {
+                        var trigger = parts[1];
+                        var value = parts.Length > 2 ? bool.Parse(parts[2]) : true;
+                        Player.Instance.SetTrigger(trigger, value);
+                    }
                 break;
             }
 
