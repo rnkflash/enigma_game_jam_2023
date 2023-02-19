@@ -108,7 +108,7 @@ using UnityEngine.InputSystem;
                 cosmoModel.SetActive(true);
                 _animator.avatar = cosmoAvatar;
 
-                cosmoPistoleto.SetActive(!pistoletoMode);
+                cosmoPistoleto.SetActive(pistoletoMode);
             } else {
                 cosmoModel.SetActive(false);
                 dudeModel.SetActive(true);
