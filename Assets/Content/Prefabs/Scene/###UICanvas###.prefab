@@ -694,6 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7384726164753056762}
   - component: {fileID: 4101839820564996259}
+  - component: {fileID: 1296421429249762809}
   m_Layer: 5
   m_Name: NPCDialogController
   m_TagString: Untagged
@@ -739,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b926890444fbbb94f8889105cc0b23d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 4299090385870749105}
   dialogText: {fileID: 1426691545012517056}
   choiceButtons:
   - {fileID: 6640292480755332582}
@@ -747,6 +747,18 @@ MonoBehaviour:
   - {fileID: 7534899642785499462}
   - {fileID: 3924233790243804405}
   globalsInkFile: {fileID: 4900000, guid: 4f47a3b160e16d640b3455479983e2d8, type: 3}
+--- !u!225 &1296421429249762809
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776301154310360715}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2799377828806653169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,7 +1913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.4295654, y: -1.0413055}
+  m_AnchoredPosition: {x: -2.4295654, y: -1.0413208}
   m_SizeDelta: {x: -28.461, y: -15.9659}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8069497145448068111
@@ -2267,7 +2279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7996007257407939354
 RectTransform:
   m_ObjectHideFlags: 0

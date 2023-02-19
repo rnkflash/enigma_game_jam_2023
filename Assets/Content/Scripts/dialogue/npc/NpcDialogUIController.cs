@@ -5,7 +5,6 @@ using Ink.Runtime;
 
 public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinkingButtonParent
 {
-    public TMP_Text nameText;
     public TMP_Text dialogText;
     public BlinkingTextButton[] choiceButtons;
     private Story story;
@@ -84,7 +83,6 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
 
     public void StartDialog(NpcObject npc, TextAsset inky)
     {
-        nameText.text = npc.name;
         dialogIsPlaying = true;
         story = new Story(inky.text);
         currentNpc = npc;
