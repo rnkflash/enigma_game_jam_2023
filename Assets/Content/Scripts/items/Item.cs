@@ -38,9 +38,9 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
         } else {
             EventBus<ConfirmDialogStart>.Pub(new ConfirmDialogStart() {
                 initiator = this,
-                question = "Podobrat " + item.name + "?",
-                yes = "Da",
-                no = "Niet"
+                question = "Pickup " + item.name + "?",
+                yes = "Yes",
+                no = "No"
             });
         }
     }
@@ -51,9 +51,9 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
 
         EventBus<ConfirmDialogStart>.Pub(new ConfirmDialogStart() {
             initiator = this,
-            question = "Podobrat " + item.name + "?",
-            yes = "Da",
-            no = "Niet"
+            question = "Pickup " + item.name + "?",
+            yes = "Yes",
+            no = "No"
         });
     }
 

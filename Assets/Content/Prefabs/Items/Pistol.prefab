@@ -210,6 +210,16 @@ PrefabInstance:
       propertyPath: executeInEditor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6503231706608237937, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
+        type: 3}
+      propertyPath: switchLayerObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503231706608237937, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
+        type: 3}
+      propertyPath: switchLayerObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 3359444129695231057}
     - target: {fileID: 6503231706608237941, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
         type: 3}
       propertyPath: m_Name

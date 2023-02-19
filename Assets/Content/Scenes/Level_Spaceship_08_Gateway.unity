@@ -4425,7 +4425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &785400863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6171,6 +6171,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1618651724453957149, guid: 3007743e4a9265b49b66b35b3d33a104, type: 3}
+--- !u!1001 &1189888146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492500, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611424583494492502, guid: b41ebaed1e9d1d040a3c1684e8457f48,
+        type: 3}
+      propertyPath: m_Name
+      value: Exosuit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b41ebaed1e9d1d040a3c1684e8457f48, type: 3}
 --- !u!43 &1195613007
 Mesh:
   m_ObjectHideFlags: 0
@@ -7464,7 +7533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1382518370
 MonoBehaviour:
   m_ObjectHideFlags: 0
