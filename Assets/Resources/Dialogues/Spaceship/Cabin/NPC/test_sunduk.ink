@@ -4,20 +4,20 @@ INCLUDE _Globals/Globals.ink
 
 
 ===FirstDialog===
-введите пароль:
-* [qwerty]
-* [cumshot]
-- пароль неверный
+Enter password:
+* [Random password]
+* [Old password]
+- Wrong password
 ->END
 
 
 ===knows_password_dialog===
 введите пароль:
-* [qwerty]
-* [cumshot]
+* [Random password]
+* [Old password]
 * [{password}]
-    пароль принят
+    Password accepted
     #trigger sunduk_open
     ->END
-- пароль неверный
+- Wrong password
 -> END
