@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
+    public bool dreamScenePassed = true;
     public string toScene = null;
     public string toExit = null;
     public bool playerWasSprinting = false;
