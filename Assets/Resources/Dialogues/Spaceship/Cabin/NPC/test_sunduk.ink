@@ -17,6 +17,8 @@ Enter password:
 * [1234]
 * [{password}]
     Password accepted
+    Finally, I found the programmer. I need to take him to Joseph.
+    You have received the programmer.
     ~ has_programmer = true
     #trigger sunduk_open
     ->END
