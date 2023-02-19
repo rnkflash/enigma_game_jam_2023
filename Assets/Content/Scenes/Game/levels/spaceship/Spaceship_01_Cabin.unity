@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f4690c8dd99f47a4a0f7319597231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkyFile: {fileID: 4900000, guid: d28089711c104f649babdc5bcd01797d, type: 3}
+  inkyFile: {fileID: 4900000, guid: e482f0b62a04d6041b4a664ef53c9678, type: 3}
   animator: {fileID: 1688069085}
   noAnimator: 0
 --- !u!1 &387521779
@@ -12117,8 +12117,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1615635710}
+  - component: {fileID: 1615635711}
   m_Layer: 0
-  m_Name: sunduk_object
+  m_Name: gameObjectsDisableTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12139,6 +12140,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615635711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615635709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee96786a923dad7439425af2d585f83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setActive: 0
+  trigger: sunduk_open
+  targets:
+  - {fileID: 628250512}
+  immediateEffect: 0
 --- !u!1 &1635014539
 GameObject:
   m_ObjectHideFlags: 0
