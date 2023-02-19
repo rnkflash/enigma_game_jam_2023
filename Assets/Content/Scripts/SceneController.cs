@@ -14,6 +14,11 @@ public class SceneController : Singleton<SceneController>
 		await LoadSceneAsync("menu", LoadSceneMode.Single);
 	}
 
+	public async void LoadIntro()
+	{
+		await LoadSceneAsync("intro", LoadSceneMode.Single);
+	}
+
 	public async void LoadGameplay()
 	{
 		await LoadSceneAsync("Level_MegaStructure_01_Prologue", LoadSceneMode.Single);
