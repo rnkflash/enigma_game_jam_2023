@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68110a8d6cbead147b5de57c0bbd66e6, type: 3}
+  m_Name: Cabin_PC
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Entries from the chief engineer's diary on the Einomia station - part 2 \nLife
+    on the Einomia station is no longer what it used to be. Everything is happening
+    like in a nightmare, and I don't understand what is happening on this station.
+    People disappear and then reappear, but they are no longer who they used to be.
+    They are like rough impressions of their former personalities. The research group
+    that disappeared in the asteroid mines a long time ago has still not appeared
+    on the horizon. And the station continues to be haunted by the ghosts of people
+    unknown to me, as if from another world. I tried to talk to them, but they behave
+    so strangely that it begins to scare me. I tried to send a distress signal, but
+    someone destroyed the entire bridge and destroyed the transmitter. The only way
+    to communicate with the outside world is through the entries in this diary. There
+    are almost no living people on the station except for those ghosts wandering
+    around at a distance. I will go to the mines to find the research group. I hope
+    they are still alive and can help me find out what is happening on this cursed
+    station. However, I fear that every second on the Einomia station becomes more
+    dangerous. I have to be careful and not fall into the traps that may be waiting
+    for me at every step. But I can't leave my colleagues, the researchers, in danger.
+    I will go to the mines and do everything possible to find out what is happening
+    and how we can save ourselves from this nightmare."

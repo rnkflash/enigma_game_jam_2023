@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68110a8d6cbead147b5de57c0bbd66e6, type: 3}
+  m_Name: Gateway_PC
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Diary of the chief engineer at the Eynomia station - part 1\n The prolonged
+    studies at the Eynomia station have not produced tangible results, and this is
+    causing increasing concern among our team. The lack of any progress in the work,
+    against the backdrop of rumors about the possible closure of the station... Tension
+    on the station is constantly growing. Recently, a new leading scientist, Eshar
+    Stanislavski, was appointed to replace the former project leader. Eshar presented
+    his theory of Noostika development and described how to stimulate the noosphere
+    of the asteroid by neutron radiation. However, the implementation of this project
+    requires huge investments and time, and it is unknown if we have enough time
+    for this. Despite all the difficulties, the team has prepared the necessary equipment
+    for noosphere irradiation. However, the chief constructor, Damien, expressed
+    his concerns about the reliability of the device. The first experimental tests
+    did not produce significant changes in the Noosphere. Despite this, Eshar proposes
+    to increase the power of radiation, but this is associated with serious risks.
+    A tragedy occurred. The device for noosphere irradiation overheated, and the
+    capsules with the rods melted, causing radiation exposure to part of the personnel.
+    Several scientists did not survive, and the remaining people began to behave
+    strangely, as if they had lost their identity. The research group that went into
+    the asteroid mines also disappeared. Unfortunately, communication with the outside
+    world is disrupted, the bridge is destroyed, and the transmitter is destroyed.
+    Only the ghosts of people are on the station, wandering back and forth, but they
+    behave so strangely that it is unbearable."
