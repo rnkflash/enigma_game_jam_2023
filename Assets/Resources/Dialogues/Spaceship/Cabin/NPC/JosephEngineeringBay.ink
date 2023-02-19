@@ -22,6 +22,7 @@ Josef: It may be possible that they have communication problems. It needs to be 
 
 == BranchProgrammer_1_2
 Josef: I will soon come to the command room.
+~ command_room = true 
 *  Ok 
 -> END
 
@@ -65,7 +66,6 @@ Josef: No problem, Van. We're just doing our job. Oh, by the way, I have a small
 == Branch1_4
 Josef: Hmm... You're a difficult person, Van. In my opinion, you're putting too much pressure on yourself. Anyway, it's good that you came. I closed the wires on the circuit board, but I left the programmer in the command hub. Without it, if I open the wiring, the board will burn out. Could you bring it to me? It's in a box on the bridge.
 * [I'll try my best to find it.] -> Quest //###BEGIN_QUEST###
-* [I disagree with you.]
 -> END
 
 
@@ -88,6 +88,7 @@ Joseph: Great, Van! Then you came just in time. I left the programmer in the com
 //###QUEST###
 == Quest
 Find programmer
+~ knows_about_pragrammer = true
 *  Ok 
 -> END
 

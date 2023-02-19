@@ -1,21 +1,30 @@
 INCLUDE _Globals/Globals.ink
 
-{ has_keycard == true: ->has_key_card | { knows_password == true: ->already_knows_password | -> FirstDialog} }
+{ knows_about_lem == true: -> FirstDialogWithPassword| { knows_password == true: ->already_knows_password | -> FirstDialogNoPassword} }
 
 ===already_knows_password===
 Lem: You already know the password, leave me alone.
 -> END
 
-===has_key_card===
-Lem: Where did you get that key? try to use it on that door.
--> FirstDialog
 
-=== FirstDialog ===
+
+
+=== FirstDialogNoPassword ===
+Lem: Van Lu, is that you? I am very busy now. If you have something to say, please say it quickly.
+* [What are you doing?] -> Branch2
+*  -> 
+-> END
+
+
+
+=== FirstDialogWithPassword ===
 Lem: Van Lu, is that you? I am very busy now. If you have something to say, please say it quickly.
 * [Hi, Andrei. I need the password for the cabinet on the bridge to retrieve the programmer.] -> Branch1
 * [What are you doing?] -> Branch2
 *  -> 
 -> END
+
+
 
 == Branch1
 Lem: Password? Why didn't you ask Joseph? He's the robotics technician on board.
@@ -29,7 +38,7 @@ Lem: The password for the cabinet is 1540. But if Joseph asks you, don't tell hi
 ~ knows_password = true
 ~ password = "1540"
 Lem: Okay, get back to your work. I need to finish analyzing the data and I don't have much time for conversations.
--> FirstDialog
+-> FirstDialogWithPassword
 
 == Branch1_2
 I do care. I don't want Josef to know this password.
@@ -77,7 +86,7 @@ Lem: I don't think we should limit our research because of financial considerati
 
 == Branch2_5
 Lem: Thank you, I am confident that this will lead to new discoveries and expand our knowledge of the human brain and its potential in noetics.
-* [I want to ask some more.] -> FirstDialog
+* [I want to ask some more.] -> FirstDialogNoPassword
 -> END
 
 
