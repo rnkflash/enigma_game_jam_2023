@@ -5,7 +5,6 @@ INCLUDE _Globals/Globals.ink
 
 ===FirstDialog===
 введите пароль:
-* [1234]
 * [qwerty]
 * [cumshot]
 - пароль неверный
@@ -14,10 +13,11 @@ INCLUDE _Globals/Globals.ink
 
 ===knows_password_dialog===
 введите пароль:
-* [{password}]
-    пароль принят
-    ->END
 * [qwerty]
 * [cumshot]
+* [{password}]
+    пароль принят
+    #trigger sunduk_open
+    ->END
 - пароль неверный
 -> END
