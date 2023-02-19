@@ -22,6 +22,16 @@ public class NpcObject : MonoBehaviour
     private void OnInteract(PlayerInteraction interactor)
     {
         EventBus<NpcDialogStart>.Pub(new NpcDialogStart() {npc = this, inky = inkyFile});
+        animator.SetBool("IsTalking", true);
+        EventBus<NpcDialogEnd>.Sub(OnFinishTalk);
+    }
+
+    private void OnFinishTalk(NpcDialogEnd message)
+    {
+        if (message.npc == this) {
+            animator.SetBool("IsTalking", false);
+            EventBus<NpcDialogEnd>.Unsub(OnFinishTalk);
+        }
     }
 
     void Update()

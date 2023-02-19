@@ -23,7 +23,7 @@ I do care. I don't want Josef to know this password.
 I don't like his approach to robotics. I believe too much attention is being paid to the development of artificial intelligence and autonomous systems, which could pose a threat to human life and freedom. I think robotics should be directed towards helping and improving people's lives, not replacing them.
 * [But he's just doing his job.] -> Branch1_4
 * [Let's talk about something else instead.]
-** [Josef forgot the programmer in the command center and asked me to retrieve it.] -> Branch1_1
+    ** [Josef forgot the programmer in the command center and asked me to retrieve it.] -> Branch1_1
 -> END
 
 == Branch1_4
