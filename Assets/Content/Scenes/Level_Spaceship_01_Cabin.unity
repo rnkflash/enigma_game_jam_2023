@@ -3927,7 +3927,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1292946
+  m_Name: pb_Mesh74700
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4629,7 +4629,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1292848
+  m_Name: pb_Mesh74560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6739,7 +6739,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1292798
+  m_Name: pb_Mesh74506
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12573,11 +12573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7905733090974811730, guid: b9045260b8adb3142b7a3552d9c7cc51,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1527
-      objectReference: {fileID: 0}
     - target: {fileID: 7905733092357904914, guid: b9045260b8adb3142b7a3552d9c7cc51,
         type: 3}
       propertyPath: m_RootOrder

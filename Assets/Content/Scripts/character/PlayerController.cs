@@ -63,6 +63,15 @@ using UnityEngine.InputSystem;
 
         public bool disableControls = false;
 
+        public Avatar cosmoAvatar;
+        public Avatar dudeAvatar;
+        public GameObject cosmoModel;
+        public GameObject dudeModel;
+
+        private bool noPistoleto;
+        public GameObject cosmoPistoleto;
+        public GameObject dudePistoleto;
+
         private void Awake()
         {
             if (_mainCamera == null)
@@ -89,6 +98,23 @@ using UnityEngine.InputSystem;
             _fallTimeoutDelta = FallTimeout;
         }
 
+        public void SetupCostume(bool cosmonaft, bool pistoleto) {
+            noPistoleto = !pistoleto;
+            if (cosmonaft) {
+                dudeModel.SetActive(false);
+                cosmoModel.SetActive(true);
+                _animator.avatar = cosmoAvatar;
+
+                cosmoPistoleto.SetActive(!noPistoleto);
+            } else {
+                cosmoModel.SetActive(false);
+                dudeModel.SetActive(true);
+                _animator.avatar = dudeAvatar;
+
+                dudePistoleto.SetActive(!noPistoleto);
+            }
+        }
+
         private void Update()
         {
             if (disableControls)
@@ -97,7 +123,8 @@ using UnityEngine.InputSystem;
             JumpAndGravity();
             GroundedCheck();
             Move();
-            Aim();
+            if (!noPistoleto)
+                Aim();
         }
 
         private void Aim() {
@@ -163,6 +190,7 @@ using UnityEngine.InputSystem;
         {
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (_input.aim) targetSpeed = 0.0f;
 
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
