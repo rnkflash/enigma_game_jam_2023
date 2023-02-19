@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad271fe2bdf11904290e7d1dc134b19b, type: 3}
-  m_Name: MegaStructure_Barrel
+  m_Name: MegaStructure_Rock
   m_EditorClassIdentifier: 
   sentences:
-  - It feels like a place of despair and hopelessness. How do I get out of here?
+  - It seems like this place is unfamiliar to you, but you have an unpleasant feeling
+    that you have been here before.
