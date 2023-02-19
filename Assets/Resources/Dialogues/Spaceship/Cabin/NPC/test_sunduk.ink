@@ -17,6 +17,7 @@ Enter password:
 * [1234]
 * [{password}]
     Password accepted
+    ~ has_programmer = true
     #trigger sunduk_open
     ->END
 - Wrong password

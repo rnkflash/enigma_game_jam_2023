@@ -1,5 +1,23 @@
 public enum SoundId {
-    test_music_01,
-    test_music_02,
-    music_spaceship_01
+    sample_main_1,
+    sample_main_2,
+    test_mood_main,
+    fear_alarm_siren,
+    fear_noise,
+    sample_jumpscare_siren,
+    test_mood_jumpscare_siren,
+    sample_heartbeat,
+    sample_ambience_radiate,
+    sample_owlhoot,
+    sample_ambience_open_calm,
+    sample_ambience_open_calm_2,
+    sample_ambience_open_calm_3,
+    battle_drum,
+    sample_stomp,
+    sample_memories,
+    sample_memories_slowed,
+    door_locked_sound,
+    sample_scrath,
+    sample_ambient_engineeringbay,
+    Space_Track
 }

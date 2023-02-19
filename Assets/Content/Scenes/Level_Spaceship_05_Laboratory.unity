@@ -1571,6 +1571,7 @@ MonoBehaviour:
   lockedDialog: {fileID: 11400000, guid: 4a96f6d0508749c42826a7cf3f790942, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
   unlockItem: {fileID: 0}
+  unlockTrigger: 
   locked: 0
 --- !u!4 &267984331
 Transform:
@@ -5999,7 +6000,7 @@ PrefabInstance:
     - target: {fileID: 5431749394417837521, guid: b307c1ed016a3a94e978fd5556a36f47,
         type: 3}
       propertyPath: track
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b307c1ed016a3a94e978fd5556a36f47, type: 3}
