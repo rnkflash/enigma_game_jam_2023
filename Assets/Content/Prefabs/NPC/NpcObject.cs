@@ -8,6 +8,7 @@ public class NpcObject : MonoBehaviour
     public TextAsset inkyFile;
     private InteractiveObject interactiveObject;
     public Animator animator;
+    public bool noAnimator = true;
     
     void Start()
     {
@@ -22,14 +23,16 @@ public class NpcObject : MonoBehaviour
     private void OnInteract(PlayerInteraction interactor)
     {
         EventBus<NpcDialogStart>.Pub(new NpcDialogStart() {npc = this, inky = inkyFile});
-        animator.SetBool("IsTalking", true);
+        if (!noAnimator)
+            animator.SetBool("IsTalking", true);
         EventBus<NpcDialogEnd>.Sub(OnFinishTalk);
     }
 
     private void OnFinishTalk(NpcDialogEnd message)
     {
         if (message.npc == this) {
-            animator.SetBool("IsTalking", false);
+            if (!noAnimator)
+                animator.SetBool("IsTalking", false);
             EventBus<NpcDialogEnd>.Unsub(OnFinishTalk);
         }
     }

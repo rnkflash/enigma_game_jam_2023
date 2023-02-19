@@ -26,6 +26,7 @@ Password? Why didn't you ask Joseph? He's the robotics technician on board.
 The password for the cabinet is 1540. But if Joseph asks you, don't tell him this code. I want to investigate him for having too simple passwords.
 * [Thank you, Andrey. I won't tell the password to Josef.]
 ~ knows_password = true
+~ password = "1540"
 Okay, get back to your work. I need to finish analyzing the data and I don't have much time for conversations.
 -> END
 
