@@ -1,6 +1,6 @@
 INCLUDE _Globals/Globals.ink
 
-{ knows_about_lem == true: -> FirstDialogWithPassword| { knows_password == true: ->already_knows_password | -> FirstDialogNoPassword} }
+{ gateway_room == true: -> Preparing | { knows_about_lem == true: -> FirstDialogWithPassword | { knows_password == true: ->already_knows_password | -> FirstDialogNoPassword} } }
 
 ===already_knows_password===
 Lem: You already know the password, leave me alone.
@@ -90,6 +90,10 @@ Lem: Thank you, I am confident that this will lead to new discoveries and expand
 -> END
 
 
+=== Preparing ===
+I'll be at the gateway soon.
+* [Ok] 
+-> END
 
 
 

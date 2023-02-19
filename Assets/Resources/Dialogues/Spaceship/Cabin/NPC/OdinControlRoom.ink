@@ -128,6 +128,10 @@ Transmitter: Communication interrupted.
 Van Lu: This is some kind of madness. It can't be that she... One, did you hear that too?
 
 Odin: There were strong interference on the station frequency, but there definitely is someone there.
+
+Odin: We have arrived at the station, get ready for the expedition.
+
+Odin: The gateway door is now open.
 ~ gateway_room = true
 #trigger gatewayTrigger
 -> END

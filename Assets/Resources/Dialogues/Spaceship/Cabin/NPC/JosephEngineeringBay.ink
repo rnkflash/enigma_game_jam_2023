@@ -1,6 +1,6 @@
 INCLUDE _Globals/Globals.ink
 
-{ has_programmer == true: ->has_programmer_tool  | -> FirstDialog}
+{ gateway_room == true: -> Preparing | { has_programmer == true: ->has_programmer_tool  | -> FirstDialog} }
 
 
 ===has_programmer_tool===
@@ -91,6 +91,12 @@ Find programmer
 ~ knows_about_pragrammer = true
 *  Ok 
 -> END
+
+=== Preparing ===
+I'll be at the gateway soon.
+* [Ok] 
+-> END
+
 
 
 
