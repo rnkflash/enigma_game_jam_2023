@@ -744,7 +744,7 @@ MonoBehaviour:
   - {fileID: 6640292480755332582}
   - {fileID: 4820590599095901467}
   - {fileID: 7534899642785499462}
-  timePerCharacter: 0.05
+  timePerCharacter: 0.01
 --- !u!1 &2799377828806653169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 47956337215783215}
-  timePerCharacter: 0.05
+  timePerCharacter: 0.01
 --- !u!1 &3393463088764712467
 GameObject:
   m_ObjectHideFlags: 0

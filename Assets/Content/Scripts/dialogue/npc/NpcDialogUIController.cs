@@ -16,7 +16,7 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
 
     private bool typingSentence = false;
     private string currentSentence;
-    public float timePerCharacter = 0.05f;
+    private float timePerCharacter = 0.01f;
     private int currentIndex = 0;
     private int currentChoiceNumber = 0;
 
@@ -144,6 +144,7 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
 	}
 
     private void ShowChoices() {
+        currentIndex = 0;
         var choices = story.currentChoices;
         currentChoiceNumber = choices.Count;
         if (choices.Count > choiceButtons.Length) {

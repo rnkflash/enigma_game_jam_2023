@@ -8,7 +8,7 @@ public class CommentDialogUIController: MonoBehaviour {
 
     public TMP_Text dialogueText;
     private Queue<string> sentences = new Queue<string>();
-    public float timePerCharacter = 0.05f;
+    private float timePerCharacter = 0.01f;
     private bool typingSentence = false;
     private string currentSentence;
 
