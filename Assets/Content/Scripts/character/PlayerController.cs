@@ -163,6 +163,7 @@ using UnityEngine.InputSystem;
         {
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (_input.aim) targetSpeed = 0.0f;
 
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
