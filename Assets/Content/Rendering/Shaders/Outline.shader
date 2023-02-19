@@ -2,7 +2,7 @@
 {
     Properties
     {
-        _Color ("Glow Color", Color ) = ( 1, 1, 1, 1)
+        [HDR]_Color ("Glow Color", Color ) = ( 1, 1, 1, 1)
         _Intensity ("Intensity", Float) = 2
         [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend ("Src Blend", Float) = 1
 		[Enum(UnityEngine.Rendering.BlendMode)] _DstBlend ("Dst Blend", Float) = 0
@@ -50,7 +50,7 @@
             float2 uv = UnityStereoTransformScreenSpaceTex(input.uv);
             half4 prepassColor = SAMPLE_TEXTURE2D_X(_OutlineRenderTexture, sampler_OutlineRenderTexture, uv);
             half4 bluredColor = SAMPLE_TEXTURE2D_X(_OutlineBluredTexture, sampler_OutlineBluredTexture,uv);
-            half4 difColor = max( 0, bluredColor - prepassColor);
+            half4 difColor = max( 0, bluredColor - (prepassColor*20));
             half4 color = difColor* _Color * _Intensity;
             color.a = 1;    
             return color;
@@ -61,6 +61,18 @@
         Pass
         {
             Blend [_SrcBlend] [_DstBlend]
+            
+            Stencil
+             {
+                Ref 1
+                Comp NotEqual
+                Pass Replace
+                Fail Keep
+                ZFail Keep
+                ReadMask 1
+                WriteMask 1
+            }
+            
             ZTest Always    // всегда рисуем, независимо от текущей глубины в буфере
             ZWrite Off      // и ничего в него не пишем
             Cull Off        // рисуем все стороны меша

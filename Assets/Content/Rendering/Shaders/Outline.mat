@@ -23,8 +23,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DstBlend: 1
-    - _Intensity: 10
+    - _Intensity: 1
     - _SrcBlend: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.32156864, b: 0, a: 1}
+    - _Color: {r: 135.58704, g: 46.852066, b: 0, a: 1}
   m_BuildTextureStacks: []
