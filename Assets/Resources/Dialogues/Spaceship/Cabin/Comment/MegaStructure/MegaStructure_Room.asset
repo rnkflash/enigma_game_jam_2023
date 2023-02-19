@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad271fe2bdf11904290e7d1dc134b19b, type: 3}
-  m_Name: MegaStructure_Barrel
+  m_Name: MegaStructure_Room
   m_EditorClassIdentifier: 
   sentences:
-  - It feels like a place of despair and hopelessness. How do I get out of here?
+  - 'It''s very dark and there''s a strange noise coming from far away. I won''t
+    go there.
+
+'
