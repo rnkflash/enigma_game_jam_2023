@@ -8,6 +8,7 @@ public class Player : Singleton<Player>
     public string toScene = null;
     public string toExit = null;
     public bool playerWasSprinting = false;
+    public bool cosmonaft = false;
 
     public Dictionary<ItemData, int> inventory = new Dictionary<ItemData, int>();
     public Dictionary<string, bool> triggers = new Dictionary<string, bool>();

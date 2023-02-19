@@ -63,6 +63,11 @@ using UnityEngine.InputSystem;
 
         public bool disableControls = false;
 
+        public Avatar cosmoAvatar;
+        public Avatar dudeAvatar;
+        public GameObject cosmoModel;
+        public GameObject dudeModel;
+
         private void Awake()
         {
             if (_mainCamera == null)
@@ -87,6 +92,18 @@ using UnityEngine.InputSystem;
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+        }
+
+        public void SetupCostume(bool cosmonaft) {
+            if (cosmonaft) {
+                dudeModel.SetActive(false);
+                cosmoModel.SetActive(true);
+                _animator.avatar = cosmoAvatar;
+            } else {
+                cosmoModel.SetActive(false);
+                dudeModel.SetActive(true);
+                _animator.avatar = dudeAvatar;
+            }
         }
 
         private void Update()

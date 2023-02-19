@@ -7,25 +7,26 @@ public class PlayerInit : MonoBehaviour
 {
     void Start()
     {
+        GetComponent<PlayerController>().SetupCostume(Player.Instance.cosmonaft);
+
         var toExit = Player.Instance.toExit;
-        if (toExit == null)
-            return;
+        if (toExit != null) {
+            var exit = GameObject.FindGameObjectsWithTag("Exit")
+                    .Select(gameObject => gameObject.GetComponent<ExitTrigger>())
+                    .Where(exitTrigger => exitTrigger!=null)
+                    .First(exitTrigger => exitTrigger.exitName == toExit);
+            
+            var cc = GetComponent<CharacterController>();
+            cc.enabled = false;
+            transform.position = exit.exitPoint.position;
+            transform.rotation = exit.exitPoint.rotation;
+            cc.enabled = true;
 
-        var exit = GameObject.FindGameObjectsWithTag("Exit")
-                .Select(gameObject => gameObject.GetComponent<ExitTrigger>())
-                .Where(exitTrigger => exitTrigger!=null)
-                .First(exitTrigger => exitTrigger.exitName == toExit);
-        
-        var cc = GetComponent<CharacterController>();
-        cc.enabled = false;
-        transform.position = exit.exitPoint.position;
-        transform.rotation = exit.exitPoint.rotation;
-        cc.enabled = true;
-
-        var door = exit.GetComponentInParent<DoorObject>();
-        if (door != null) {
-            door.EnterSequence(GetComponent<PlayerController>());
-        } else
-            exit.EnterSequence(GetComponent<PlayerController>());
+            var door = exit.GetComponentInParent<DoorObject>();
+            if (door != null) {
+                door.EnterSequence(GetComponent<PlayerController>());
+            } else
+                exit.EnterSequence(GetComponent<PlayerController>());
+        }
     }
 }
