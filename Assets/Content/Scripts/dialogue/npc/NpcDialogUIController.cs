@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 
 public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinkingButtonParent
 {
@@ -21,8 +22,14 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
     private int currentChoiceNumber = 0;
     private bool dontTypeNextSentence;
 
+    private DialogVariables dialogVariables;
+
+    public InkFile globalsInkFile;
+
     void Awake()
     {
+        dialogVariables = new DialogVariables(globalsInkFile.filePath);
+
         dialogIsPlaying = false;
         foreach (var button in choiceButtons)
         {
@@ -86,10 +93,13 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
         currentNpc = npc;
         typingSentence = false;
         currentSentence = "";
+        dialogVariables.StartListening(story);
         ContinueStory();
     }
 
     private void EndDialogue() {
+        dialogVariables.StopListening(story);
+        story = null;
         var tempNpc = currentNpc;
         dialogIsPlaying = false;
         currentNpc = null;
@@ -204,7 +214,7 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
         foreach (string tag in tags)
         {
             switch(tag.ToLower()) {
-                case "dontype":
+                case "donttype":
                     dontTypeNextSentence = true;
                 break;
             }
