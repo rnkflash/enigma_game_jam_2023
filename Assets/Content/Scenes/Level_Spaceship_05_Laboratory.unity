@@ -5837,12 +5837,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db9a2a3fd287d2479a0327c4cd16696, type: 3}
---- !u!1 &566045272 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4105421130587468593, guid: 1db9a2a3fd287d2479a0327c4cd16696,
-    type: 3}
-  m_PrefabInstance: {fileID: 566045271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &566045273 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1db9a2a3fd287d2479a0327c4cd16696,
@@ -9030,13 +9024,13 @@ PrefabInstance:
     - target: {fileID: 6503231706608237937, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
         type: 3}
       propertyPath: switchLayerObjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6503231706608237937, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
         type: 3}
       propertyPath: switchLayerObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 566045272}
+      objectReference: {fileID: 0}
     - target: {fileID: 6503231706608237941, guid: 1e85b202149929b4fb79bfbe0d2d00b4,
         type: 3}
       propertyPath: m_Name
@@ -11627,7 +11621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f4690c8dd99f47a4a0f7319597231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkyFile: {fileID: 4900000, guid: d28089711c104f649babdc5bcd01797d, type: 3}
+  inkyFile: {fileID: 4900000, guid: 409a6d5687e2768478725dca1e9d2557, type: 3}
   animator: {fileID: 566045273}
   noAnimator: 0
 --- !u!65 &1573476612
