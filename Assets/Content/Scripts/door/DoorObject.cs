@@ -87,8 +87,10 @@ public class DoorObject : MonoBehaviour
                 doorIndicator?.SetColor(DoorIndicator.Colors.GREEN);
                 EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = unlockDialog});
                 EventBus<CommentDialogEnd>.Sub(WaitForDialogEnd);
-            } else
+            } else {
+                SoundSystem.PlaySound(Sounds.Instance.GetAudioClip(SoundId.door_locked));
                 EventBus<CommentDialogStart>.Pub(new CommentDialogStart() {payload = lockedDialog});
+            }
             return;
         }
         
