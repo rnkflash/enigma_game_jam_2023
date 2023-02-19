@@ -13,11 +13,13 @@ public class NpcObject : MonoBehaviour
     void Start()
     {
         interactiveObject = GetComponentInChildren<InteractiveObject>();
-        interactiveObject.onInteractListeners += OnInteract;
+        if (interactiveObject != null)
+            interactiveObject.onInteractListeners += OnInteract;
     }
 
     void OnDestroy() {
-        interactiveObject.onInteractListeners -= OnInteract;
+        if (interactiveObject != null)
+            interactiveObject.onInteractListeners -= OnInteract;
     }
 
     private void OnInteract(PlayerInteraction interactor)
