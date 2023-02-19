@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bf2b9c794b216409a3d814096d82c3, type: 3}
   m_Name: exosuit_intro
   m_EditorClassIdentifier: 
-  id: 0
-  clip: {fileID: 0}
+  id: 22
+  clip: {fileID: 8300000, guid: 3180d15bd14f88947a3e34c06bc74f22, type: 3}

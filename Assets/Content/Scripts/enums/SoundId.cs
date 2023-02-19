@@ -20,5 +20,6 @@ public enum SoundId {
     sample_scrath,
     sample_ambient_engineeringbay,
     Space_Track,
-    door_locked
+    door_locked,
+    exosuit_intro
 }
