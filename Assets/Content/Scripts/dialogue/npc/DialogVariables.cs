@@ -1,21 +1,22 @@
 using System.Collections.Generic;
 using System.IO;
 using Ink.Runtime;
+using UnityEngine;
 
 public class DialogVariables {
 
-    private Dictionary<string, Ink.Runtime.Object> variables;
+    private static Dictionary<string, Ink.Runtime.Object> variables = null;
 
-    public DialogVariables(string path) {
-        string content = File.ReadAllText(path);
-        Ink.Compiler compiler = new Ink.Compiler(content);
-        Story globals = compiler.Compile();
+    public DialogVariables(TextAsset globalsFile) {
+        Story globals = new Story(globalsFile.text);
 
-        variables = new Dictionary<string, Object>();
-        foreach (var name in globals.variablesState)
-        {
-            Ink.Runtime.Object value = globals.variablesState.GetVariableWithName(name);
-            variables.Add(name, value);
+        if (variables == null) {
+            variables = new Dictionary<string, Ink.Runtime.Object>();
+            foreach (var name in globals.variablesState)
+            {
+                Ink.Runtime.Object value = globals.variablesState.GetVariableWithName(name);
+                variables.Add(name, value);
+            }
         }
     }
 

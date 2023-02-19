@@ -744,20 +744,7 @@ MonoBehaviour:
   - {fileID: 6640292480755332582}
   - {fileID: 4820590599095901467}
   - {fileID: 7534899642785499462}
-  globalsInkFile:
-    compileAutomatically: 0
-    inkAsset: {fileID: 102900000, guid: 06c8fa25bb6368944b55e7e6d387b745, type: 3}
-    jsonAssetDirectory: {fileID: 0}
-    jsonAsset: {fileID: 0}
-    unhandledCompileErrors: []
-    errors: []
-    warnings: []
-    todos: []
-    parents: []
-    masterInkAssets: []
-    masterInkAsset: {fileID: 0}
-    includePaths: []
-    includes: []
+  globalsInkFile: {fileID: 4900000, guid: 4f47a3b160e16d640b3455479983e2d8, type: 3}
 --- !u!1 &2799377828806653169
 GameObject:
   m_ObjectHideFlags: 0

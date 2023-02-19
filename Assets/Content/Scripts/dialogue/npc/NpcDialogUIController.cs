@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 using Ink.Runtime;
-using Ink.UnityIntegration;
 
 public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinkingButtonParent
 {
@@ -24,11 +21,11 @@ public class NpcDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinking
 
     private DialogVariables dialogVariables;
 
-    public InkFile globalsInkFile;
+    public TextAsset globalsInkFile;
 
     void Awake()
     {
-        dialogVariables = new DialogVariables(globalsInkFile.filePath);
+        dialogVariables = new DialogVariables(globalsInkFile);
 
         dialogIsPlaying = false;
         foreach (var button in choiceButtons)

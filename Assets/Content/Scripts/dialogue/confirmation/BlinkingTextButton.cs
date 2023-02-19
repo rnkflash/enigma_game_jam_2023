@@ -50,6 +50,8 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
 
     private void SetAlpha(float alpha) {
+        if (bg == null)
+            return;
         Color currColor = bg.color;
         currColor.a = alpha;
         bg.color = currColor;
