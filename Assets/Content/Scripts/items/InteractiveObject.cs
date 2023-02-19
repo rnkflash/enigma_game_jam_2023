@@ -30,8 +30,10 @@ public class InteractiveObject : MonoBehaviour
             var index = 0;
             foreach (var item in switchLayerObjects)
             {
-                savedLayers[index++] = item.layer;
-                item.layer = LayerMask.NameToLayer(switchToLayer);
+                if (item != null) {
+                    savedLayers[index++] = item.layer;
+                    item.layer = LayerMask.NameToLayer(switchToLayer);
+                }
             }
 
             onStartSelectListeners?.Invoke(player);
@@ -41,7 +43,8 @@ public class InteractiveObject : MonoBehaviour
             var index = 0;
             foreach (var item in switchLayerObjects)
             {
-                item.layer = savedLayers[index++];
+                if (item != null)
+                    item.layer = savedLayers[index++];
             }
 
             selectUI?.Disappear();
