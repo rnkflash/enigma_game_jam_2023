@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : Singleton<Player>
@@ -37,5 +38,10 @@ public class Player : Singleton<Player>
     public void SetTrigger(string trigger, bool value) {
         triggers[trigger] = value;
         EventBus<TriggerWasSet>.Pub(new TriggerWasSet() { trigger = trigger, value = value});
+    }
+
+    internal bool HasItemOfType(ItemId pistol)
+    {
+        return inventory.Any(i=>i.Key.id == pistol);
     }
 }

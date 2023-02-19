@@ -68,6 +68,10 @@ using UnityEngine.InputSystem;
         public GameObject cosmoModel;
         public GameObject dudeModel;
 
+        private bool noPistoleto;
+        public GameObject cosmoPistoleto;
+        public GameObject dudePistoleto;
+
         private void Awake()
         {
             if (_mainCamera == null)
@@ -94,15 +98,20 @@ using UnityEngine.InputSystem;
             _fallTimeoutDelta = FallTimeout;
         }
 
-        public void SetupCostume(bool cosmonaft) {
+        public void SetupCostume(bool cosmonaft, bool pistoleto) {
+            noPistoleto = !pistoleto;
             if (cosmonaft) {
                 dudeModel.SetActive(false);
                 cosmoModel.SetActive(true);
                 _animator.avatar = cosmoAvatar;
+
+                cosmoPistoleto.SetActive(!noPistoleto);
             } else {
                 cosmoModel.SetActive(false);
                 dudeModel.SetActive(true);
                 _animator.avatar = dudeAvatar;
+
+                dudePistoleto.SetActive(!noPistoleto);
             }
         }
 
@@ -114,7 +123,8 @@ using UnityEngine.InputSystem;
             JumpAndGravity();
             GroundedCheck();
             Move();
-            Aim();
+            if (!noPistoleto)
+                Aim();
         }
 
         private void Aim() {

@@ -7,7 +7,7 @@ public class PlayerInit : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<PlayerController>().SetupCostume(Player.Instance.cosmonaft);
+        GetComponent<PlayerController>().SetupCostume(Player.Instance.cosmonaft, Player.Instance.HasItemOfType(ItemId.Pistol));
 
         var toExit = Player.Instance.toExit;
         if (toExit != null) {
