@@ -3,5 +3,6 @@ public enum ItemId {
     KeyCardBlue,
     KeyCardGreen,
     Pistol,
-    PistolAmmo
+    PistolAmmo,
+    Exosuit
 }

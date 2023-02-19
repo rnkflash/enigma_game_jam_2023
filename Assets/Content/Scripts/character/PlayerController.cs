@@ -63,12 +63,13 @@ using UnityEngine.InputSystem;
 
         public bool disableControls = false;
 
+        public bool cosmonaftMode;
         public Avatar cosmoAvatar;
         public Avatar dudeAvatar;
         public GameObject cosmoModel;
         public GameObject dudeModel;
 
-        private bool noPistoleto;
+        public bool pistoletoMode;
         public GameObject cosmoPistoleto;
         public GameObject dudePistoleto;
 
@@ -99,19 +100,21 @@ using UnityEngine.InputSystem;
         }
 
         public void SetupCostume(bool cosmonaft, bool pistoleto) {
-            noPistoleto = !pistoleto;
+            cosmonaftMode = cosmonaft;
+            pistoletoMode = pistoleto;
+
             if (cosmonaft) {
                 dudeModel.SetActive(false);
                 cosmoModel.SetActive(true);
                 _animator.avatar = cosmoAvatar;
 
-                cosmoPistoleto.SetActive(!noPistoleto);
+                cosmoPistoleto.SetActive(pistoletoMode);
             } else {
                 cosmoModel.SetActive(false);
                 dudeModel.SetActive(true);
                 _animator.avatar = dudeAvatar;
 
-                dudePistoleto.SetActive(!noPistoleto);
+                dudePistoleto.SetActive(pistoletoMode);
             }
         }
 
@@ -123,7 +126,7 @@ using UnityEngine.InputSystem;
             JumpAndGravity();
             GroundedCheck();
             Move();
-            if (!noPistoleto)
+            if (pistoletoMode)
                 Aim();
         }
 

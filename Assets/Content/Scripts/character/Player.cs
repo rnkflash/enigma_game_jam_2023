@@ -18,6 +18,8 @@ public class Player : Singleton<Player>
         if (!inventory.ContainsKey(item))
             inventory[item] = 0;
         inventory[item] += amount;
+
+        EventBus<PickedUpItem>.Pub(new PickedUpItem() {item = item, amount = amount});
     }
 
     public bool HasItem(ItemData item)

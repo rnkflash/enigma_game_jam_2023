@@ -895,6 +895,8 @@ GameObject:
   - component: {fileID: 4538010633224663621}
   - component: {fileID: 3207773882190004787}
   - component: {fileID: 1717750459264877412}
+  - component: {fileID: 7426846418490795171}
+  - component: {fileID: 7000338592914197727}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1098,10 +1100,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   disableControls: 0
+  cosmonaftMode: 0
   cosmoAvatar: {fileID: 9000000, guid: 1ec70702bdf8ca24e9193c1dad82a87e, type: 3}
   dudeAvatar: {fileID: 9000000, guid: 91c051d084f74af4db1a68a129ccebdd, type: 3}
   cosmoModel: {fileID: 626700447023855223}
   dudeModel: {fileID: 1615458112499514167}
+  pistoletoMode: 0
   cosmoPistoleto: {fileID: 5948994428118461762}
   dudePistoleto: {fileID: 2573458379447560090}
 --- !u!114 &4538010633224663621
@@ -1152,6 +1156,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17f1ba72a49af9a4aa3ad6b5daa6aaee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7426846418490795171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9108739404113244102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8d1496b51aac5468fb8eff5eb9535c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7000338592914197727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9108739404113244102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2cfbd6520bcd74faf45b36031d29c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9114090410670006849
