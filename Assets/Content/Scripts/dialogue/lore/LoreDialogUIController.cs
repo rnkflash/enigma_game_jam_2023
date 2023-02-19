@@ -13,6 +13,22 @@ public class LoreDialogUIController: MonoBehaviour {
         sentences.Clear();
     }
 
+    public void SetActive(bool active) {
+        if (active)
+            EventBus<DialogButtonPressed>.Sub(OnButtonPressed);
+        else
+            EventBus<DialogButtonPressed>.Unsub(OnButtonPressed);
+        
+        gameObject.SetActive(active);
+    }
+
+    private void OnButtonPressed(DialogButtonPressed message)
+    {
+        if (message.button == DialogButtonPressed.Type.Submit || message.button == DialogButtonPressed.Type.LeftClick)
+            SkipSentence();
+    }
+
+
     public void StartDialog(LoreDialogueSO data) {
         dialogueText.text = "";
         sentences.Clear();

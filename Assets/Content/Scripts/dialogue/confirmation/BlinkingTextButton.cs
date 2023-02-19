@@ -14,6 +14,12 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
     private TMP_Text buttonText;
     public event Action onClickListeners;
 
+    public interface IBlinkingButtonParent {
+        void MouseSelected(BlinkingTextButton button);
+    }
+
+    private IBlinkingButtonParent parent = null;
+
     private float blinkingTime = 0.5f;
 
     void Awake() {
@@ -22,19 +28,25 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
         StopBlinking();
     }
 
+    public void SetParent(IBlinkingButtonParent newParent) {
+        parent = newParent;
+    }
+
     void OnDestroy() {
         DOTween.Kill(bg);
     }
 
-    private void StartBlinking() {
+    public void StartBlinking() {
         DOTween.Kill(bg);
         SetAlpha(0.05f);
         bg.DOFade(0.0f, blinkingTime).SetEase(Ease.OutCubic).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void StopBlinking() {
-        DOTween.Kill(bg);
-        SetAlpha(0.0f);
+        if (bg != null) {
+            DOTween.Kill(bg);
+            SetAlpha(0.0f);
+        }
     }
 
     private void SetAlpha(float alpha) {
@@ -46,6 +58,7 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnPointerEnter(PointerEventData eventData)
     {
         StartBlinking();
+        parent.MouseSelected(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -61,6 +74,7 @@ public class BlinkingTextButton: MonoBehaviour, IPointerEnterHandler, IPointerEx
     }
 
     public void SetText(string text) {
-        buttonText.text = text;
+        if (buttonText != null)
+            buttonText.text = text;
     }
 }

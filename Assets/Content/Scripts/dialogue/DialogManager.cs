@@ -16,10 +16,10 @@ public class DialogManager : MonoBehaviour
     
     void Start()
     {
-        commentDialog.gameObject.SetActive(false);
-        confirmDialog.gameObject.SetActive(false);
-        loreDialog.gameObject.SetActive(false);
-        npcDialog.gameObject.SetActive(false);
+        commentDialog.SetActive(false);
+        confirmDialog.SetActive(false);
+        loreDialog.SetActive(false);
+        npcDialog.SetActive(false);
 
         inputValues = GameObject.FindObjectOfType<PlayerInputValues>();
 
@@ -59,10 +59,32 @@ public class DialogManager : MonoBehaviour
         if (!dialogActive)
             return;
 
-        if (inputValues.use || inputValues.fire) {
+        if (inputValues.use || inputValues.fire || inputValues.move.sqrMagnitude > 0 || inputValues.aim) {
             if (!useButtonPressed) {
                 useButtonPressed = true;
-                OnAnyDialogNext();
+                if (inputValues.use) {
+                    EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.Submit});
+                } else
+                if (inputValues.fire) {
+                    EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.LeftClick});
+                } else
+                if (inputValues.move.sqrMagnitude > 0) {
+                    if (inputValues.move.x > 0)
+                        EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.Right});
+                    else
+                    if (inputValues.move.x < 0)
+                        EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.Left});
+                    else
+                    if (inputValues.move.y > 0)
+                        EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.Up});
+                    else
+                    if (inputValues.move.y < 0)
+                        EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.Down});
+                    
+                } else
+                if (inputValues.aim) {
+                    EventBus<DialogButtonPressed>.Pub(new DialogButtonPressed() {button = DialogButtonPressed.Type.RightClick});
+                } 
             }
         } else {
             useButtonPressed = false;
@@ -72,67 +94,52 @@ public class DialogManager : MonoBehaviour
     private void OnConfirmDialogResult(ConfirmDialogResult message)
     {
         dialogActive = false;
-        confirmDialog.gameObject.SetActive(false);
+        confirmDialog.SetActive(false);
     }
 
     private void OnConfirmDialogStart(ConfirmDialogStart message)
     {
         dialogActive = true;
-        confirmDialog.gameObject.SetActive(true);
+        confirmDialog.SetActive(true);
         confirmDialog.StartDialog(message.initiator, message.question, message.yes, message.no);
     }
 
     private void OnCommentDialogStart(CommentDialogStart message)
     {
         dialogActive = true;
-        commentDialog.gameObject.SetActive(true);
+        commentDialog.SetActive(true);
         commentDialog.StartDialog(message.payload);
     }
 
     private void OnCommentDialogEnd(CommentDialogEnd message)
     {
         dialogActive = false;
-        commentDialog.gameObject.SetActive(false);
+        commentDialog.SetActive(false);
     }
 
     private void OnLoreDialogStart(LoreDialogStart message)
     {
         dialogActive = true;
-        loreDialog.gameObject.SetActive(true);
+        loreDialog.SetActive(true);
         loreDialog.StartDialog(message.payload);
     }
 
     private void OnLoreDialogEnd(LoreDialogEnd message)
     {
         dialogActive = false;
-        loreDialog.gameObject.SetActive(false);
+        loreDialog.SetActive(false);
     }    
 
     private void OnNpcDialogStart(NpcDialogStart message)
     {
         dialogActive = true;
-        npcDialog.gameObject.SetActive(true);
+        npcDialog.SetActive(true);
         npcDialog.StartDialog(message.npc, message.inky);
     }
 
     private void OnNpcDialogEnd(NpcDialogEnd message)
     {
         dialogActive = false;
-        npcDialog.gameObject.SetActive(false);
+        npcDialog.SetActive(false);
     }  
-
-    private void OnAnyDialogNext()
-    {
-        if (commentDialog.gameObject.activeSelf) {
-            commentDialog.SkipSentence();
-        }
-
-        if (loreDialog.gameObject.activeSelf) {
-            loreDialog.SkipSentence();
-        }
-
-        if (npcDialog.gameObject.activeSelf) {
-            npcDialog.SkipSentence();
-        }
-    }
 }

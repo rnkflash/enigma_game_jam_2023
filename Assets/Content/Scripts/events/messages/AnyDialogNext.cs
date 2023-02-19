@@ -1,3 +1,0 @@
-public class AnyDialogNext: Message  {
-    
-}

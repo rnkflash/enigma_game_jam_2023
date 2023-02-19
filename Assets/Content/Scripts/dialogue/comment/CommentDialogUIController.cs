@@ -2,18 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class CommentDialogUIController: MonoBehaviour {
 
     public TMP_Text dialogueText;
     private Queue<string> sentences = new Queue<string>();
-    public float timePerCharacter = 0.05f;
+    private float timePerCharacter = 0.01f;
     private bool typingSentence = false;
     private string currentSentence;
 
     void Awake() {
         dialogueText.text = "";
         sentences.Clear();
+
+        
+    }
+
+    public void SetActive(bool active) {
+        if (active)
+            EventBus<DialogButtonPressed>.Sub(OnButtonPressed);
+        else
+            EventBus<DialogButtonPressed>.Unsub(OnButtonPressed);
+
+        gameObject.SetActive(active);
+    }
+
+    private void OnButtonPressed(DialogButtonPressed message)
+    {
+        if (message.button == DialogButtonPressed.Type.Submit || message.button == DialogButtonPressed.Type.LeftClick)
+            SkipSentence();
     }
 
     public void StartDialog(CommentDialogueSO data) {
