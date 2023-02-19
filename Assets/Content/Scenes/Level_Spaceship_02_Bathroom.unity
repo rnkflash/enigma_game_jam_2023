@@ -9331,7 +9331,7 @@ PrefabInstance:
     - target: {fileID: 5431749394417837521, guid: b307c1ed016a3a94e978fd5556a36f47,
         type: 3}
       propertyPath: track
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b307c1ed016a3a94e978fd5556a36f47, type: 3}
@@ -13852,6 +13852,7 @@ MonoBehaviour:
   lockedDialog: {fileID: 0}
   unlockDialog: {fileID: 0}
   unlockItem: {fileID: 0}
+  unlockTrigger: 
   locked: 0
 --- !u!1 &6677699451359852343
 GameObject:

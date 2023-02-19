@@ -1,12 +1,13 @@
 INCLUDE _Globals/Globals.ink
 
 
-{ knows_about_pragrammer = true: -> FirstDialogWithProgrammer  | { tried_wrong_password = true: -> wrong_password  | { command_room = true: -> CommandRoomActivated | -> FirstDialogWihoutProgrammer }}}
+{ command_room == true: -> CommandRoomActivated  | { tried_wrong_password == true: -> wrong_password  | { knows_about_pragrammer == true: -> FirstDialogWithProgrammer  | -> FirstDialogWihoutProgrammer }}}
 
 //{ command_room = true: -> CommandRoomActivated | -> FirstDialogWihoutProgrammer }
 
-
-
+command_room == true: -> CommandRoomActivated
+tried_wrong_password == true: -> wrong_password
+knows_about_pragrammer == true: -> FirstDialogWithProgrammer 
 ===wrong_password===
 Van Lu: The password you gave me did not work for the cabinet. Are there any other options?
 
@@ -28,8 +29,6 @@ Odin: Andre Lem is currently in the laboratory. He has been there since yesterda
 
 //###FIRST_DIALOG###
 === FirstDialogWihoutProgrammer ===
-Van Lu: Hello One. Are all the ship's syst123ems okay?
-
 Odin: Greetings, Van Lu. The analysis shows that all systems are in order.
 * [How much time do we have left until we reach the station?] -> Branch1
 * [Tell me about the ship.] -> Branch2
@@ -39,8 +38,6 @@ Odin: Greetings, Van Lu. The analysis shows that all systems are in order.
 
 
 === FirstDialogWithProgrammer ===
-Van Lu: Hello One. Are all the ship's systems okay?
-
 Odin: Greetings, Van Lu. The analysis shows that all systems are in order.
 * [How much time do we have left until we reach the station?] -> Branch1
 * [Tell me about the ship.] -> Branch2
