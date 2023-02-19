@@ -23,7 +23,8 @@ public class PickedUpExosuit : MonoBehaviour
 
         if (message.item.id == ItemId.Exosuit) {
             character.SetupCostume(true, character.pistoletoMode);
-
+            Player.Instance.cosmonaft = true;
+            SoundSystem.PlaySound(Sounds.Instance.GetAudioClip(SoundId.exosuit_intro));
         }
     }
 }
