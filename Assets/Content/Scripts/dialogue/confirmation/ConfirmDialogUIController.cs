@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ConfirmDialogUIController : MonoBehaviour
+public class ConfirmDialogUIController : MonoBehaviour, BlinkingTextButton.IBlinkingButtonParent
 {
     public TMP_Text questionText;
     public BlinkingTextButton yesButton;
@@ -24,12 +24,21 @@ public class ConfirmDialogUIController : MonoBehaviour
         };
 
         index = 0;
+
+        foreach (var button in choices)
+        {
+            button.SetParent(this);
+        }
     }
 
     void OnDestroy() {
         yesButton.onClickListeners -= YesButtonPressed;
         noButton.onClickListeners -= NoButtonPressed;
 
+        foreach (var button in choices)
+        {
+            button.SetParent(null);
+        }
     }
 
     public void SetActive(bool active) {
@@ -50,19 +59,11 @@ public class ConfirmDialogUIController : MonoBehaviour
                 NoButtonPressed();
         } else 
         if (message.button == DialogButtonPressed.Type.Left) {
-            choices[index].StopBlinking();
-            index--;
-            if (index < 0)
-                index = 1;
-            choices[index].StartBlinking();
+            SelectButton(index + 1);
         }
         else
         if (message.button == DialogButtonPressed.Type.Right) {
-            choices[index].StopBlinking();
-            index++;
-            if (index > 1)
-                index = 0;
-            choices[index].StartBlinking();
+            SelectButton(index - 1);
         }
     }
 
@@ -87,5 +88,26 @@ public class ConfirmDialogUIController : MonoBehaviour
     {
         EventBus<ConfirmDialogResult>.Pub(new ConfirmDialogResult() { result = false});
         initiator?.ConfirmDialog(false);
+    }
+
+    private void SelectButton(int newIndex) {
+        choices[index].StopBlinking();
+        index = newIndex;
+        if (index < 0)
+            index = choices.Length - 1;
+        if (index >= choices.Length)
+            index = 0;
+        choices[index].StartBlinking();
+    }
+
+    public void MouseSelected(BlinkingTextButton button)
+    {
+        for (int i = 0; i < choices.Length; i++)
+        {
+            if (choices[i] == button) {
+                SelectButton(i);
+                break;
+            }
+        }
     }
 }
