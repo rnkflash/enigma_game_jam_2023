@@ -15,8 +15,6 @@ public class CommentDialogUIController: MonoBehaviour {
     void Awake() {
         dialogueText.text = "";
         sentences.Clear();
-
-        
     }
 
     public void SetActive(bool active) {
@@ -53,6 +51,7 @@ public class CommentDialogUIController: MonoBehaviour {
 		}
 
 		currentSentence = sentences.Dequeue();
+        //dialogueText.text = currentSentence;
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence());
 	}

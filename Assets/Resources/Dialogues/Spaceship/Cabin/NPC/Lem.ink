@@ -28,7 +28,7 @@ The password for the cabinet is 1540. But if Joseph asks you, don't tell him thi
 ~ knows_password = true
 ~ password = "1540"
 Okay, get back to your work. I need to finish analyzing the data and I don't have much time for conversations.
--> END
+-> FirstDialog
 
 == Branch1_2
 I do care. I don't want Josef to know this password.
