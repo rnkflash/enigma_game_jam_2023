@@ -1782,7 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkyFile: {fileID: 4900000, guid: e446cf1908af41c4bbdeba0c3c085266, type: 3}
   animator: {fileID: 1791644413}
-  noAnimator: 0
+  noAnimator: 1
 --- !u!65 &407458854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5366,7 +5366,7 @@ PrefabInstance:
     - target: {fileID: 6128231129044646968, guid: 04e6bdc0911c5724490557b8468fe361,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.0879364
+      value: -1.0879211
       objectReference: {fileID: 0}
     - target: {fileID: 9065536182667478938, guid: 04e6bdc0911c5724490557b8468fe361,
         type: 3}

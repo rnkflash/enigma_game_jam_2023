@@ -19820,8 +19820,9 @@ MonoBehaviour:
   exit: {fileID: 0}
   noAnimator: 0
   lockedDialog: {fileID: 11400000, guid: c568c0456019b8c4e86222f3de19de74, type: 2}
-  unlockDialog: {fileID: 0}
-  unlockItem: {fileID: 0}
+  unlockDialog: {fileID: 11400000, guid: c568c0456019b8c4e86222f3de19de74, type: 2}
+  unlockItem: {fileID: 11400000, guid: eaf204729ba612d4d864ba426310a92b, type: 2}
+  unlockTrigger: 
   locked: 1
 --- !u!4 &1695962955
 Transform:
@@ -19849,7 +19850,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1382718
+  m_Name: pb_Mesh415390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26143,8 +26144,9 @@ MonoBehaviour:
   exit: {fileID: 0}
   noAnimator: 0
   lockedDialog: {fileID: 11400000, guid: b259ff7ebdaf9d5479da2bd8132aa377, type: 2}
-  unlockDialog: {fileID: 0}
-  unlockItem: {fileID: 0}
+  unlockDialog: {fileID: 11400000, guid: b259ff7ebdaf9d5479da2bd8132aa377, type: 2}
+  unlockItem: {fileID: 11400000, guid: eaf204729ba612d4d864ba426310a92b, type: 2}
+  unlockTrigger: 
   locked: 1
 --- !u!4 &2637113259742563841
 Transform:

@@ -1,8 +1,9 @@
 INCLUDE _Globals/Globals.ink
 
 
-{ ~ knows_about_pragrammer = true: -> FirstDialogWithProgrammer  | { tried_wrong_password = true: -> wrong_password  | -> FirstDialogWihoutProgrammer}}
-{ ~ command_room = true: -> CommandRoomActivated | -> FirstDialogWihoutProgrammer }
+{ knows_about_pragrammer = true: -> FirstDialogWithProgrammer  | { tried_wrong_password = true: -> wrong_password  | { command_room = true: -> CommandRoomActivated | -> FirstDialogWihoutProgrammer }}}
+
+//{ command_room = true: -> CommandRoomActivated | -> FirstDialogWihoutProgrammer }
 
 
 
@@ -27,7 +28,7 @@ Odin: Andre Lem is currently in the laboratory. He has been there since yesterda
 
 //###FIRST_DIALOG###
 === FirstDialogWihoutProgrammer ===
-Van Lu: Hello One. Are all the ship's systems okay?
+Van Lu: Hello One. Are all the ship's syst123ems okay?
 
 Odin: Greetings, Van Lu. The analysis shows that all systems are in order.
 * [How much time do we have left until we reach the station?] -> Branch1
@@ -130,5 +131,7 @@ Transmitter: Communication interrupted.
 Van Lu: This is some kind of madness. It can't be that she... One, did you hear that too?
 
 Odin: There were strong interference on the station frequency, but there definitely is someone there.
+~ gateway_room = true
+#trigger gatewayTrigger
 -> END
 

@@ -9067,8 +9067,7 @@ Transform:
   m_LocalPosition: {x: -13.586182, y: 3.1944027, z: -6.941806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1655764684}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15129,129 +15128,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2324744109088284094, guid: d49e064bf03096546bd93a5e30ed4a31, type: 3}
---- !u!1001 &1655764680
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 858679774}
-    m_Modifications:
-    - target: {fileID: 324955668401349836, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_Name
-      value: KeyCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.7561817
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.1214027
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.611806
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4911530876895564653, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: model
-      value: 
-      objectReference: {fileID: 1655764682}
-    - target: {fileID: 4911530876895564653, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: afterPickupComment
-      value: 
-      objectReference: {fileID: 11400000, guid: 6245497e46c56424db722dd4c93ed978,
-        type: 2}
-    - target: {fileID: 6356916202590781842, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: switchLayerObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356916202590781842, guid: 580b7c66634ae8444834c45dd30a10de,
-        type: 3}
-      propertyPath: switchLayerObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1655764682}
-    m_RemovedComponents:
-    - {fileID: 328054105, guid: 580b7c66634ae8444834c45dd30a10de, type: 3}
-    - {fileID: 324955668401349838, guid: 580b7c66634ae8444834c45dd30a10de, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 580b7c66634ae8444834c45dd30a10de, type: 3}
---- !u!1 &1655764681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 324955668401349836, guid: 580b7c66634ae8444834c45dd30a10de,
-    type: 3}
-  m_PrefabInstance: {fileID: 1655764680}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1655764682 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 324955668337703749, guid: 580b7c66634ae8444834c45dd30a10de,
-    type: 3}
-  m_PrefabInstance: {fileID: 1655764680}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1655764683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655764681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496a99f84ff0cdf4ca92526aebc36043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 8
---- !u!4 &1655764684 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 324955668401349839, guid: 580b7c66634ae8444834c45dd30a10de,
-    type: 3}
-  m_PrefabInstance: {fileID: 1655764680}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1668998766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17088,7 +16964,8 @@ MonoBehaviour:
   noAnimator: 0
   lockedDialog: {fileID: 11400000, guid: 94c2baaa1a186b043b0b2391754b6b4e, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
-  unlockItem: {fileID: 11400000, guid: d9b051f4712ea95499bab1750c428236, type: 2}
+  unlockItem: {fileID: 0}
+  unlockTrigger: gatewayTrigger
   locked: 1
 --- !u!114 &1817256443
 MonoBehaviour:
@@ -17428,6 +17305,7 @@ MonoBehaviour:
   lockedDialog: {fileID: 11400000, guid: 4a96f6d0508749c42826a7cf3f790942, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
   unlockItem: {fileID: 0}
+  unlockTrigger: 
   locked: 0
 --- !u!1 &1889429402
 GameObject:
@@ -18357,7 +18235,8 @@ MonoBehaviour:
   noAnimator: 0
   lockedDialog: {fileID: 11400000, guid: 8e7a11369e537334b924608ab005c663, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
-  unlockItem: {fileID: 0}
+  unlockItem: {fileID: 11400000, guid: eaf204729ba612d4d864ba426310a92b, type: 2}
+  unlockTrigger: 
   locked: 1
 --- !u!1 &1941977842
 GameObject:
@@ -20068,6 +19947,7 @@ MonoBehaviour:
   lockedDialog: {fileID: 11400000, guid: 4a96f6d0508749c42826a7cf3f790942, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
   unlockItem: {fileID: 0}
+  unlockTrigger: 
   locked: 0
 --- !u!1 &2137966236
 GameObject:
@@ -20817,6 +20697,7 @@ MonoBehaviour:
   lockedDialog: {fileID: 11400000, guid: 4a96f6d0508749c42826a7cf3f790942, type: 2}
   unlockDialog: {fileID: 11400000, guid: 9aeb016c5d30e904382975da5491ea00, type: 2}
   unlockItem: {fileID: 11400000, guid: d9b051f4712ea95499bab1750c428236, type: 2}
+  unlockTrigger: 
   locked: 0
 --- !u!1 &2637113259957641803
 GameObject:

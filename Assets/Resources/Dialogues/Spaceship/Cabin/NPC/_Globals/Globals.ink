@@ -7,3 +7,4 @@ VAR tried_wrong_password = false
 VAR knows_about_lem = false
 VAR knows_about_pragrammer = false
 VAR command_room = false
+VAR gateway_room = false

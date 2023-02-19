@@ -7,7 +7,6 @@ INCLUDE _Globals/Globals.ink
 ===FirstDialog===
 Enter password:
 * [Random password]
-* [1234]
 - Wrong password
 ->END
 
