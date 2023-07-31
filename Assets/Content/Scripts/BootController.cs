@@ -8,5 +8,6 @@ public class BootController : MonoBehaviour
 		Application.targetFrameRate = 60;
 		DOTween.Init();
 		SceneController.Instance.StartGame();
+		SceneController.Instance.LoadLoseScreen();
 	}
 }

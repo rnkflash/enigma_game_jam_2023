@@ -54,7 +54,7 @@ public class OutlineFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        var depthTexture = renderer.cameraDepthTarget;
+        //var depthTexture = renderer.cameraDepthTarget;
         //_renderPass.SetDepthTexture(depthTexture);
 
         renderer.EnqueuePass(_renderPass);

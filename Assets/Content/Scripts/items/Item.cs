@@ -17,6 +17,10 @@ public class Item : MonoBehaviour, IConfirmDialogInitiator
     public CommentDialogueSO afterPickupComment;
 
     void Start() {
+        if (model == null) {
+            model = GetComponentInChildren<MeshRenderer>().gameObject;
+        }
+        
         interactiveObject = GetComponentInChildren<InteractiveObject>();
         interactiveObject.onInteractListeners += Interact;
 
